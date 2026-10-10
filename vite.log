@@ -1,0 +1,96 @@
+Port 5173 is in use, trying another one...
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m651[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5174[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [[2m1:08:53 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m1:09:06 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m1:09:09 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/ManagerLogin.jsx[22m
+[2m1:09:52 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/DriverLogin.jsx[22m
+[2m1:09:54 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/RoleSelection.jsx[22m
+[2m1:09:58 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m1:23:23 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+[2m1:23:51 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Layout.jsx[22m
+[2m1:25:38 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m1:26:06 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m1:26:34 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m1:33:22 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Layout.jsx[22m
+[2m1:33:37 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Trips.jsx[22m
+[2m1:33:57 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Vehicles.jsx[22m
+[2m1:34:22 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Drivers.jsx[22m
+[2m1:35:45 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Layout.jsx[22m
+[2m1:36:04 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Layout.jsx[22m
+[2m1:40:13 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/App.jsx[22m
+[2m1:41:01 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m1:41:32 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m1:43:28 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Layout.jsx[22m
+[2m1:44:02 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+[2m1:53:13 pm[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+Re-optimizing dependencies because lockfile has changed
+[2m1:53:13 pm[22m [36m[1m[vite][22m[39m server restarted.
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.137.1:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://172.17.211.0:[1m5173[22m/[39m
+[2m1:53:26 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+[2m1:53:26 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Layout.jsx[22m
+[2m1:53:26 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Layout.jsx[22m
+[2m1:53:38 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/ManagerLogin.jsx[22m
+[2m1:53:38 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/DriverLogin.jsx[22m
+[2m1:53:38 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/DriverLogin.jsx[22m
+[2m1:54:09 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m1:54:49 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Trips.jsx[22m
+[2m1:54:49 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Trips.jsx[22m
+[2m1:55:05 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Vehicles.jsx[22m
+[2m1:55:05 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Drivers.jsx[22m
+[2m1:55:05 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Drivers.jsx[22m
+[2m1:55:23 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/DriverDashboard.jsx[22m
+[2m1:55:24 pm[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33mlucide-react[32m[39m
+[2m1:55:24 pm[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m1:55:26 pm[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33mreact-leaflet, leaflet[32m[39m
+[2m1:55:26 pm[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m1:55:35 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m1:56:16 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+[2m1:56:16 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.jsx[22m
+[2m1:56:16 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m1:56:50 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Layout.jsx[22m
+[2m1:56:50 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m1:56:50 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Trips.jsx[22m
+[2m1:56:58 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Vehicles.jsx[22m
+[2m1:56:58 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Drivers.jsx[22m
+[2m1:59:07 pm[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[2m1:59:07 pm[22m [36m[1m[vite][22m[39m server restarted.
+[2m2:01:42 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Vehicles.jsx[22m
+[2m2:01:53 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+[2m2:01:53 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Vehicles.jsx[22m
+[2m2:01:53 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/theme.css[22m
+[2m2:03:46 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m2:03:46 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/theme.css[22m
+[2m2:14:25 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Trips.jsx[22m
+[2m2:14:50 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m2:15:14 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m2:15:23 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Drivers.jsx[22m
+[2m2:15:30 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Drivers.jsx[22m
+[2m2:15:47 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/DriverDashboard.jsx[22m
+[2m2:15:47 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/DriverDashboard.jsx[22m
+[2m2:15:57 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m2:16:17 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/RouteRecommendation.jsx[22m
+[2m2:16:17 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/RouteRecommendation.jsx[22m
+[2m2:16:29 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Vehicles.jsx[22m
+[2m2:16:57 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/theme.css[22m
+[2m2:20:07 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Trips.jsx[22m
+[2m2:25:55 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Layout.jsx[22m
+[2m2:25:55 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m3:27:26 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m3:27:47 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m3:28:03 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/RouteRecommendation.jsx[22m
+[2m3:28:25 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m3:28:28 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/GoogleFleetMap.jsx[22m
+[2m3:28:36 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/theme.css[22m
+[2m3:28:57 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/GoogleFleetMap.jsx[22m
+[2m3:28:57 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/theme.css[22m
+[2m3:29:30 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/GoogleFleetMap.jsx[22m
+[2m3:30:27 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/GoogleFleetMap.jsx[22m
+[2m3:30:27 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m
+[2m3:30:54 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/GoogleFleetMap.jsx[22m
+[2m3:31:56 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Dashboard.jsx[22m

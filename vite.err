@@ -1,0 +1,279 @@
+[2m1:23:23 pm[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./pages/Monitoring" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/sustain AI hackathon/sustain-AI-conclave/frontend/src/App.jsx[39m:6:23
+[33m  20 |  import DriverLogin from "./pages/DriverLogin";
+  21 |  import Dashboard from "./pages/Dashboard";
+  22 |  import Monitoring from "./pages/Monitoring";
+     |                          ^
+  23 |  import Trips from "./pages/Trips";
+  24 |  import Drivers from "./pages/Drivers";[39m
+      at TransformPluginContext._formatError (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 8)
+      at async TransformPluginContext.transform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+[2m1:23:24 pm[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./pages/Monitoring" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/sustain AI hackathon/sustain-AI-conclave/frontend/src/App.jsx[39m:6:23
+[33m  20 |  import DriverLogin from "./pages/DriverLogin";
+  21 |  import Dashboard from "./pages/Dashboard";
+  22 |  import Monitoring from "./pages/Monitoring";
+     |                          ^
+  23 |  import Trips from "./pages/Trips";
+  24 |  import Drivers from "./pages/Drivers";[39m
+      at TransformPluginContext._formatError (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 8)
+      at async TransformPluginContext.transform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+[2m1:23:24 pm[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./pages/Monitoring" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/sustain AI hackathon/sustain-AI-conclave/frontend/src/App.jsx[39m:6:23
+[33m  20 |  import DriverLogin from "./pages/DriverLogin";
+  21 |  import Dashboard from "./pages/Dashboard";
+  22 |  import Monitoring from "./pages/Monitoring";
+     |                          ^
+  23 |  import Trips from "./pages/Trips";
+  24 |  import Drivers from "./pages/Drivers";[39m
+      at TransformPluginContext._formatError (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 8)
+      at async TransformPluginContext.transform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+[2m1:23:24 pm[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./pages/Monitoring" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/sustain AI hackathon/sustain-AI-conclave/frontend/src/App.jsx[39m:6:23
+[33m  20 |  import DriverLogin from "./pages/DriverLogin";
+  21 |  import Dashboard from "./pages/Dashboard";
+  22 |  import Monitoring from "./pages/Monitoring";
+     |                          ^
+  23 |  import Trips from "./pages/Trips";
+  24 |  import Drivers from "./pages/Drivers";[39m
+      at TransformPluginContext._formatError (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 8)
+      at async TransformPluginContext.transform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/sustain%20AI%20hackathon/sustain-AI-conclave/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+[2m1:53:33 pm[22m [31m[1m[vite][22m[39m [31merror while updating dependencies:
+Error: EPERM: operation not permitted, rename 'E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\.vite\deps_temp_43a7b99b' -> 'E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\.vite\deps'[39m
+[2m1:54:15 pm[22m [31m[1m[vite][22m[39m [31merror while updating dependencies:
+Error: EPERM: operation not permitted, rename 'E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\.vite\deps_temp_a8c6b5d0' -> 'E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\.vite\deps'[39m
+[2m2:14:25 pm[22m [31m[1m[vite][22m[39m [31mInternal server error: E:\sustain AI hackathon\sustain-AI-conclave\frontend\src\pages\Trips.jsx: Unexpected token, expected "," (272:18)
+
+[0m [90m 270 |[31m                     [33m<[31m[33m/[31m[33mtd[31m[33m>[31m
+ [90m 271 |[31m                   [33m<[31m[33m/[31m[33mtr[31m[33m>[31m
+[31m[1m>[22m[31m[90m 272 |[31m                   {assignmentTarget [33m===[31m trip[33m.[31mid [33m&&[31m (
+ [90m     |[31m                   [31m[1m^[22m[31m
+ [90m 273 |[31m                     [33m<[31m[33mtr[31m key[33m=[31m{[32m`${trip.id}-assignment`[31m}[33m>[31m
+ [90m 274 |[31m                       [33m<[31m[33mtd[31m colSpan[33m=[31m[32m"7"[31m[33m>[31m
+ [90m 275 |[31m                         [33m<[31m[33mdiv[31m className[33m=[31m[32m"inline-assignment-panel"[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mE:/sustain AI hackathon/sustain-AI-conclave/frontend/src/pages/Trips.jsx[39m:272:18
+[33m  275|                          <div className="inline-assignment-panel">
+  276|                            <div className="assignment-heading">
+  277|                              <strong>Manual assignment · {trip.referenceNumber}</strong>
+     |               ^
+  278|                              <button className="text-button" type="button" onClick={() => setAssignmentTarget(null)}>Close</button>
+  279|                            </div>[39m
+      at constructor (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at JSXParserMixin.raise (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:6622:19)
+      at JSXParserMixin.unexpected (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:6642:16)
+      at JSXParserMixin.expect (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:6922:12)
+      at JSXParserMixin.parseParenAndDistinguishExpression (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11692:14)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11362:23)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4782:20)
+      at JSXParserMixin.parseExprSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11107:23)
+      at JSXParserMixin.parseUpdate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11092:21)
+      at JSXParserMixin.parseMaybeUnary (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11072:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10925:61)
+      at JSXParserMixin.parseExprOps (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10930:23)
+      at JSXParserMixin.parseMaybeConditional (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10907:23)
+      at JSXParserMixin.parseMaybeAssign (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10857:21)
+      at JSXParserMixin.parseFunctionBody (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12127:24)
+      at JSXParserMixin.parseArrowExpression (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12109:10)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11469:25)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4782:20)
+      at JSXParserMixin.parseExprSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11107:23)
+      at JSXParserMixin.parseUpdate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11092:21)
+      at JSXParserMixin.parseMaybeUnary (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11072:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10925:61)
+      at JSXParserMixin.parseExprOps (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10930:23)
+      at JSXParserMixin.parseMaybeConditional (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10907:23)
+      at JSXParserMixin.parseMaybeAssign (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10857:21)
+      at E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10826:39
+      at JSXParserMixin.allowInAnd (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12460:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10826:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12527:17)
+      at JSXParserMixin.parseExprListItem (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12209:18)
+      at JSXParserMixin.parseCallExpressionArguments (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11283:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11217:29)
+      at JSXParserMixin.parseSubscript (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11146:19)
+      at JSXParserMixin.parseSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11120:19)
+      at JSXParserMixin.parseExprSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11111:17)
+      at JSXParserMixin.parseUpdate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11092:21)
+      at JSXParserMixin.parseMaybeUnary (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11072:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10925:61)
+      at JSXParserMixin.parseExprOps (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10930:23)
+      at JSXParserMixin.parseMaybeConditional (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10907:23)
+      at JSXParserMixin.parseMaybeAssign (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10857:21)
+      at JSXParserMixin.parseExpressionBase (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10810:23)
+      at E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10806:39
+      at JSXParserMixin.allowInAnd (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12460:12)
+      at JSXParserMixin.parseExpression (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10806:17)
+      at JSXParserMixin.jsxParseExpressionContainer (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4650:31)
+      at JSXParserMixin.jsxParseElementAt (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4729:36)
+      at JSXParserMixin.jsxParseElementAt (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4716:32)
+      at JSXParserMixin.jsxParseElementAt (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4716:32)
+      at JSXParserMixin.jsxParseElement (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4767:17)
+[2m2:14:25 pm[22m [31m[1m[vite][22m[39m [31mInternal server error: E:\sustain AI hackathon\sustain-AI-conclave\frontend\src\pages\Trips.jsx: Unexpected token, expected "," (272:18)
+
+[0m [90m 270 |[31m                     [33m<[31m[33m/[31m[33mtd[31m[33m>[31m
+ [90m 271 |[31m                   [33m<[31m[33m/[31m[33mtr[31m[33m>[31m
+[31m[1m>[22m[31m[90m 272 |[31m                   {assignmentTarget [33m===[31m trip[33m.[31mid [33m&&[31m (
+ [90m     |[31m                   [31m[1m^[22m[31m
+ [90m 273 |[31m                     [33m<[31m[33mtr[31m key[33m=[31m{[32m`${trip.id}-assignment`[31m}[33m>[31m
+ [90m 274 |[31m                       [33m<[31m[33mtd[31m colSpan[33m=[31m[32m"7"[31m[33m>[31m
+ [90m 275 |[31m                         [33m<[31m[33mdiv[31m className[33m=[31m[32m"inline-assignment-panel"[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mE:/sustain AI hackathon/sustain-AI-conclave/frontend/src/pages/Trips.jsx[39m:272:18
+[33m  275|                          <div className="inline-assignment-panel">
+  276|                            <div className="assignment-heading">
+  277|                              <strong>Manual assignment · {trip.referenceNumber}</strong>
+     |               ^
+  278|                              <button className="text-button" type="button" onClick={() => setAssignmentTarget(null)}>Close</button>
+  279|                            </div>[39m
+      at constructor (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at JSXParserMixin.raise (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:6622:19)
+      at JSXParserMixin.unexpected (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:6642:16)
+      at JSXParserMixin.expect (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:6922:12)
+      at JSXParserMixin.parseParenAndDistinguishExpression (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11692:14)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11362:23)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4782:20)
+      at JSXParserMixin.parseExprSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11107:23)
+      at JSXParserMixin.parseUpdate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11092:21)
+      at JSXParserMixin.parseMaybeUnary (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11072:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10925:61)
+      at JSXParserMixin.parseExprOps (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10930:23)
+      at JSXParserMixin.parseMaybeConditional (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10907:23)
+      at JSXParserMixin.parseMaybeAssign (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10857:21)
+      at JSXParserMixin.parseFunctionBody (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12127:24)
+      at JSXParserMixin.parseArrowExpression (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12109:10)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11469:25)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4782:20)
+      at JSXParserMixin.parseExprSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11107:23)
+      at JSXParserMixin.parseUpdate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11092:21)
+      at JSXParserMixin.parseMaybeUnary (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11072:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10925:61)
+      at JSXParserMixin.parseExprOps (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10930:23)
+      at JSXParserMixin.parseMaybeConditional (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10907:23)
+      at JSXParserMixin.parseMaybeAssign (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10857:21)
+      at E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10826:39
+      at JSXParserMixin.allowInAnd (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12460:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10826:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12527:17)
+      at JSXParserMixin.parseExprListItem (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12209:18)
+      at JSXParserMixin.parseCallExpressionArguments (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11283:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11217:29)
+      at JSXParserMixin.parseSubscript (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11146:19)
+      at JSXParserMixin.parseSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11120:19)
+      at JSXParserMixin.parseExprSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11111:17)
+      at JSXParserMixin.parseUpdate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11092:21)
+      at JSXParserMixin.parseMaybeUnary (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11072:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10925:61)
+      at JSXParserMixin.parseExprOps (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10930:23)
+      at JSXParserMixin.parseMaybeConditional (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10907:23)
+      at JSXParserMixin.parseMaybeAssign (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10857:21)
+      at JSXParserMixin.parseExpressionBase (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10810:23)
+      at E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10806:39
+      at JSXParserMixin.allowInAnd (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12460:12)
+      at JSXParserMixin.parseExpression (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10806:17)
+      at JSXParserMixin.jsxParseExpressionContainer (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4650:31)
+      at JSXParserMixin.jsxParseElementAt (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4729:36)
+      at JSXParserMixin.jsxParseElementAt (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4716:32)
+      at JSXParserMixin.jsxParseElementAt (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4716:32)
+      at JSXParserMixin.jsxParseElement (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4767:17)
+[2m2:14:25 pm[22m [31m[1m[vite][22m[39m [31mInternal server error: E:\sustain AI hackathon\sustain-AI-conclave\frontend\src\pages\Trips.jsx: Unexpected token, expected "," (272:18)
+
+[0m [90m 270 |[31m                     [33m<[31m[33m/[31m[33mtd[31m[33m>[31m
+ [90m 271 |[31m                   [33m<[31m[33m/[31m[33mtr[31m[33m>[31m
+[31m[1m>[22m[31m[90m 272 |[31m                   {assignmentTarget [33m===[31m trip[33m.[31mid [33m&&[31m (
+ [90m     |[31m                   [31m[1m^[22m[31m
+ [90m 273 |[31m                     [33m<[31m[33mtr[31m key[33m=[31m{[32m`${trip.id}-assignment`[31m}[33m>[31m
+ [90m 274 |[31m                       [33m<[31m[33mtd[31m colSpan[33m=[31m[32m"7"[31m[33m>[31m
+ [90m 275 |[31m                         [33m<[31m[33mdiv[31m className[33m=[31m[32m"inline-assignment-panel"[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mE:/sustain AI hackathon/sustain-AI-conclave/frontend/src/pages/Trips.jsx[39m:272:18
+[33m  275|                          <div className="inline-assignment-panel">
+  276|                            <div className="assignment-heading">
+  277|                              <strong>Manual assignment · {trip.referenceNumber}</strong>
+     |               ^
+  278|                              <button className="text-button" type="button" onClick={() => setAssignmentTarget(null)}>Close</button>
+  279|                            </div>[39m
+      at constructor (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at JSXParserMixin.raise (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:6622:19)
+      at JSXParserMixin.unexpected (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:6642:16)
+      at JSXParserMixin.expect (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:6922:12)
+      at JSXParserMixin.parseParenAndDistinguishExpression (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11692:14)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11362:23)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4782:20)
+      at JSXParserMixin.parseExprSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11107:23)
+      at JSXParserMixin.parseUpdate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11092:21)
+      at JSXParserMixin.parseMaybeUnary (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11072:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10925:61)
+      at JSXParserMixin.parseExprOps (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10930:23)
+      at JSXParserMixin.parseMaybeConditional (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10907:23)
+      at JSXParserMixin.parseMaybeAssign (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10857:21)
+      at JSXParserMixin.parseFunctionBody (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12127:24)
+      at JSXParserMixin.parseArrowExpression (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12109:10)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11469:25)
+      at JSXParserMixin.parseExprAtom (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4782:20)
+      at JSXParserMixin.parseExprSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11107:23)
+      at JSXParserMixin.parseUpdate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11092:21)
+      at JSXParserMixin.parseMaybeUnary (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11072:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10925:61)
+      at JSXParserMixin.parseExprOps (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10930:23)
+      at JSXParserMixin.parseMaybeConditional (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10907:23)
+      at JSXParserMixin.parseMaybeAssign (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10857:21)
+      at E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10826:39
+      at JSXParserMixin.allowInAnd (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12460:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10826:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12527:17)
+      at JSXParserMixin.parseExprListItem (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12209:18)
+      at JSXParserMixin.parseCallExpressionArguments (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11283:22)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11217:29)
+      at JSXParserMixin.parseSubscript (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11146:19)
+      at JSXParserMixin.parseSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11120:19)
+      at JSXParserMixin.parseExprSubscripts (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11111:17)
+      at JSXParserMixin.parseUpdate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11092:21)
+      at JSXParserMixin.parseMaybeUnary (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:11072:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10925:61)
+      at JSXParserMixin.parseExprOps (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10930:23)
+      at JSXParserMixin.parseMaybeConditional (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10907:23)
+      at JSXParserMixin.parseMaybeAssign (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10857:21)
+      at JSXParserMixin.parseExpressionBase (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10810:23)
+      at E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10806:39
+      at JSXParserMixin.allowInAnd (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:12460:12)
+      at JSXParserMixin.parseExpression (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:10806:17)
+      at JSXParserMixin.jsxParseExpressionContainer (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4650:31)
+      at JSXParserMixin.jsxParseElementAt (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4729:36)
+      at JSXParserMixin.jsxParseElementAt (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4716:32)
+      at JSXParserMixin.jsxParseElementAt (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4716:32)
+      at JSXParserMixin.jsxParseElement (E:\sustain AI hackathon\sustain-AI-conclave\frontend\node_modules\@babel\parser\lib\index.js:4767:17)
