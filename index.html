@@ -1,13 +1,1233 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FleetMind AI</title>
-    <script type="module" crossorigin src="/assets/index-BvEV9aXQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CnfdAI2H.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Oops Smart Reviews System | Automotive Risk & AI Intelligence</title>
+    <meta name="description" content="AI-Powered Customer Assistance, Vehicle Risk Analytics, Smart Health Telemetry, and Review Intelligence">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand-section">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 3c-.1.2-.1.4-.1.6v4.5c0 .6.4 1 1 1h2"/>
+                        <circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="brand-title">Green Oops</h1>
+                    <span class="brand-subtitle">Smart Reviews & Risk</span>
+                </div>
+            </div>
+
+            <!-- User Profile & Role Info in Sidebar -->
+            <div class="sidebar-user-card" id="sidebar-user-card">
+                <div class="user-avatar-circle" id="user-avatar-initials">SH</div>
+                <div class="user-info-text">
+                    <div class="user-display-name" id="user-display-name">S. Harikumaran</div>
+                    <div class="user-role-badge badge-owner" id="user-role-display">VEHICLE OWNER</div>
+                    <div class="user-verified-tag" id="user-verified-display">✓ Verified RC: RC-TN-GO-77821</div>
+                </div>
+            </div>
+
+            <nav class="nav-menu" id="main-nav-menu">
+                <button class="nav-item active" data-tab="tab-overview">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                    Fleet Overview
+                </button>
+                <button class="nav-item" data-tab="tab-risk-analytics">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Risk Analytics (A/B/C)
+                </button>
+                <button class="nav-item" data-tab="tab-analysis">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    Analysis Module
+                </button>
+                <button class="nav-item" data-tab="tab-driver-console">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="M12 12v6"/></svg>
+                    Driver Pre-Trip Console
+                </button>
+                <button class="nav-item" data-tab="tab-vehicle-health">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    Vehicle Health & Tires
+                </button>
+                <button class="nav-item" data-tab="tab-smart-reviews">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Smart Reviews
+                </button>
+                <button class="nav-item" data-tab="tab-ai-assistant">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M4.93 10.93a2 2 0 0 1 2.83 0l1.41 1.41a2 2 0 1 1-2.83 2.83l-1.41-1.41a2 2 0 0 1 0-2.83z"/><path d="M2 18a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2 2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path d="M16.24 7.76a6 6 0 1 0 0 8.48"/></svg>
+                    Spring AI Assistant
+                </button>
+                <button class="nav-item" data-tab="tab-recommendations">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                    Vehicle Recommender
+                </button>
+                <button class="nav-item" data-tab="tab-green-driving">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                    Green Driving & CO2
+                </button>
+                <button class="nav-item" data-tab="tab-notifications">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                    Alerts & Notifications
+                    <span class="nav-badge" id="sidebar-alert-badge">4</span>
+                </button>
+                <button class="nav-item" data-tab="tab-reports">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Health Reports (PDF)
+                </button>
+                <button class="nav-item" data-tab="tab-database">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                    Database & JPA Storage
+                </button>
+            </nav>
+
+            <div class="system-status-card">
+                <div class="status-indicator-wrapper">
+                    <span class="status-dot pulsing"></span>
+                    <span class="status-text" id="system-status-indicator">Engine Active (0.00ms)</span>
+                </div>
+                <div class="status-meta">Spring Boot 3.5 &bull; Role-Based Security</div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Bar with User Auth & Switcher -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h2 class="page-heading" id="current-page-title">Fleet Overview & Command Center</h2>
+                    <p class="page-subheading" id="current-page-subtitle">Real-time automotive telemetry, risk engine scoring, and AI assistance</p>
+                </div>
+                <div class="topbar-actions">
+                    <!-- Quick Role Switcher for Seamless Testing -->
+                    <div class="auth-role-switcher">
+                        <button class="btn btn-secondary btn-sm" id="btn-switch-role" title="Quick toggle between Owner and Driver modes">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <span id="label-role-switcher">Switch to Driver</span>
+                        </button>
+                        <button class="btn btn-secondary btn-sm" id="btn-open-login" title="Sign In with Credentials">
+                            Login / Switch
+                        </button>
+                    </div>
+
+                    <button class="btn btn-secondary" id="btn-refresh" title="Reload live data">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+                        Refresh
+                    </button>
+                    <button class="btn btn-secondary" id="btn-open-add-maintenance" title="Log new maintenance service for a vehicle">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        Log Service
+                    </button>
+                    <button class="btn btn-primary" id="btn-open-add-vehicle">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        Add Vehicle
+                    </button>
+                </div>
+            </header>
+
+            <!-- TAB 1: FLEET OVERVIEW -->
+            <div class="tab-page active" id="tab-overview">
+                <!-- Welcoming Digital Notebook Header Banner -->
+                <section class="agri-notebook-banner">
+                    <div class="agri-banner-content">
+                        <h2 class="agri-banner-title">Welcome digital notebook.</h2>
+                        <p class="agri-banner-subtitle">Farm management workspace.</p>
+                    </div>
+                    <button class="btn-glowing-teal" id="btn-banner-ai-ask" type="button">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        <span>Ask an agriculture question</span>
+                    </button>
+                </section>
+
+                <!-- Workspace Grid: 2x2 Translucent Cream Metric Cards + Right Widget Panels -->
+                <section class="agri-workspace-grid">
+                    <div class="agri-metrics-quad">
+                        <div class="agri-metric-card">
+                            <div class="agri-metric-title">Land registered</div>
+                            <div class="agri-metric-value">0</div>
+                            <div class="agri-metric-sub">parcels / -</div>
+                        </div>
+                        <div class="agri-metric-card">
+                            <div class="agri-metric-title">Active crop plans</div>
+                            <div class="agri-metric-value">0</div>
+                            <div class="agri-metric-sub">plans / -</div>
+                        </div>
+                        <div class="agri-metric-card">
+                            <div class="agri-metric-title">Upcoming tasks</div>
+                            <div class="agri-metric-value">0</div>
+                            <div class="agri-metric-sub">tasks / -</div>
+                        </div>
+                        <div class="agri-metric-card">
+                            <div class="agri-metric-title">AI conversations</div>
+                            <div class="agri-metric-value">0</div>
+                            <div class="agri-metric-sub">conversations / -</div>
+                        </div>
+                    </div>
+
+                    <div class="agri-widgets-col">
+                        <div class="agri-widget-card" id="widget-weather-area">
+                            <div class="agri-widget-header">
+                                <span class="agri-widget-title">Weather for your area</span>
+                                <span class="agri-widget-arrow">&gt;</span>
+                            </div>
+                            <div class="agri-widget-body">
+                                <div class="weather-temp-display">28°C &bull; Optimal Humidity 64%</div>
+                                <div class="weather-forecast-note">Ideal conditions for field and fleet operations</div>
+                            </div>
+                        </div>
+                        <div class="agri-widget-card" id="widget-helpful-places">
+                            <div class="agri-widget-header">
+                                <span class="agri-widget-title">Helpful places</span>
+                                <span class="agri-widget-arrow">&gt;</span>
+                            </div>
+                            <div class="agri-widget-body">
+                                <div class="places-item">&bull; Regional Agro Hub (4.2 km)</div>
+                                <div class="places-item">&bull; Eco-Fleet Depot Central (7.8 km)</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Summary KPI Grid -->
+                <section class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-header"><span class="kpi-title">Total Monitored</span><div class="kpi-icon icon-blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg></div></div>
+                        <div class="kpi-value" id="kpi-total-vehicles">5</div>
+                        <div class="kpi-footer text-muted">Active telemetry connected</div>
+                    </div>
+                    <div class="kpi-card alert-card">
+                        <div class="kpi-header"><span class="kpi-title">High-Priority Risks</span><div class="kpi-icon icon-red"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div></div>
+                        <div class="kpi-value text-red" id="kpi-high-risk">3</div>
+                        <div class="kpi-footer text-red-subtle">Safety critical / Urgent action</div>
+                    </div>
+                    <div class="kpi-card warning-card">
+                        <div class="kpi-header"><span class="kpi-title">Medium-Priority Risks</span><div class="kpi-icon icon-amber"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div></div>
+                        <div class="kpi-value text-amber" id="kpi-medium-risk">3</div>
+                        <div class="kpi-footer text-amber-subtle">Timely attention required</div>
+                    </div>
+                    <div class="kpi-card safe-card">
+                        <div class="kpi-header"><span class="kpi-title">Low-Priority Risks</span><div class="kpi-icon icon-emerald"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div>
+                        <div class="kpi-value text-emerald" id="kpi-low-risk">3</div>
+                        <div class="kpi-footer text-emerald-subtle">Preventive / Routine</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-header"><span class="kpi-title">Overdue Maintenance</span><div class="kpi-icon icon-purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div>
+                        <div class="kpi-value text-purple" id="kpi-overdue-service">1</div>
+                        <div class="kpi-footer text-muted">Exceeds 180-day interval</div>
+                    </div>
+                </section>
+
+                <!-- Toolbar & Vehicle List Table -->
+                <section class="toolbar-section">
+                    <div class="search-box">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        <input type="text" id="input-search" placeholder="Search by vehicle model, registration, or fuel...">
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label" for="filter-risk">Risk Level:</label>
+                        <select id="filter-risk" class="select-control">
+                            <option value="ALL">All Risk Levels</option>
+                            <option value="HIGH">High Risk (60-100)</option>
+                            <option value="MEDIUM">Medium Risk (30-59)</option>
+                            <option value="LOW">Low Risk (0-29)</option>
+                        </select>
+                        <label class="filter-label" for="filter-fuel">Fuel Type:</label>
+                        <select id="filter-fuel" class="select-control">
+                            <option value="ALL">All Fuel Types</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Electric">Electric</option>
+                        </select>
+                    </div>
+                </section>
+
+                <section class="card-table-container">
+                    <div class="table-header-info">
+                        <h3 class="section-title">Fleet Vehicles & Status Summary</h3>
+                        <span class="badge badge-neutral" id="visible-count-badge">5 Units Monitored</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="fleet-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Vehicle Model & Reg</th>
+                                    <th>Powertrain</th>
+                                    <th>Year</th>
+                                    <th>Odometer</th>
+                                    <th>Efficiency</th>
+                                    <th>Last Service</th>
+                                    <th>Risk Score</th>
+                                    <th>Status</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vehicle-table-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TAB 2: VEHICLE RISK ANALYTICS (TABLES A, B, C) -->
+            <div class="tab-page" id="tab-risk-analytics">
+                <div class="tab-header-banner">
+                    <div>
+                        <h3 class="banner-title">Vehicle Risk Analytics Dashboard</h3>
+                        <p class="banner-text">Three priority-segregated tables with measured diagnostics, thresholds, severity scoring, and administrative status lifecycle.</p>
+                    </div>
+                    <div class="table-tab-pills">
+                        <button class="pill-btn active" data-risk-target="table-a-container">Table A: High-Priority Risks</button>
+                        <button class="pill-btn" data-risk-target="table-b-container">Table B: Medium-Priority Risks</button>
+                        <button class="pill-btn" data-risk-target="table-c-container">Table C: Low-Priority Risks</button>
+                    </div>
+                </div>
+
+                <!-- Table A: High Priority -->
+                <div class="risk-table-wrapper" id="table-a-container">
+                    <div class="table-title-bar table-bar-red">
+                        <div class="bar-left">
+                            <span class="priority-indicator indicator-high"></span>
+                            <h4>Table A: High-Priority Risks (Safety-Critical & Severe Faults)</h4>
+                        </div>
+                        <span class="badge badge-high" id="badge-count-table-a">3 Records</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="fleet-table" id="table-a-element">
+                            <thead>
+                                <tr>
+                                    <th>Vehicle & Model</th>
+                                    <th>Category</th>
+                                    <th>Detected Issue</th>
+                                    <th>Measured Value</th>
+                                    <th>Expected Range</th>
+                                    <th>Risk Score</th>
+                                    <th>Reason</th>
+                                    <th>Recommended Action</th>
+                                    <th>Detected / Updated</th>
+                                    <th>Status</th>
+                                    <th class="text-right">Update Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-table-a"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Table B: Medium Priority -->
+                <div class="risk-table-wrapper hidden-table" id="table-b-container">
+                    <div class="table-title-bar table-bar-amber">
+                        <div class="bar-left">
+                            <span class="priority-indicator indicator-medium"></span>
+                            <h4>Table B: Medium-Priority Risks (Abnormal Readings & Timely Attention)</h4>
+                        </div>
+                        <span class="badge badge-medium" id="badge-count-table-b">3 Records</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="fleet-table" id="table-b-element">
+                            <thead>
+                                <tr>
+                                    <th>Vehicle & Model</th>
+                                    <th>Category</th>
+                                    <th>Detected Issue</th>
+                                    <th>Measured Value</th>
+                                    <th>Expected Range</th>
+                                    <th>Risk Score</th>
+                                    <th>Reason</th>
+                                    <th>Recommended Action</th>
+                                    <th>Detected / Updated</th>
+                                    <th>Status</th>
+                                    <th class="text-right">Update Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-table-b"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Table C: Low Priority -->
+                <div class="risk-table-wrapper hidden-table" id="table-c-container">
+                    <div class="table-title-bar table-bar-green">
+                        <div class="bar-left">
+                            <span class="priority-indicator indicator-low"></span>
+                            <h4>Table C: Low-Priority Risks (Routine Servicing & Preventive Reminders)</h4>
+                        </div>
+                        <span class="badge badge-low" id="badge-count-table-c">3 Records</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="fleet-table" id="table-c-element">
+                            <thead>
+                                <tr>
+                                    <th>Vehicle & Model</th>
+                                    <th>Category</th>
+                                    <th>Detected Issue</th>
+                                    <th>Measured Value</th>
+                                    <th>Expected Range</th>
+                                    <th>Risk Score</th>
+                                    <th>Reason</th>
+                                    <th>Recommended Action</th>
+                                    <th>Detected / Updated</th>
+                                    <th>Status</th>
+                                    <th class="text-right">Update Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-table-c"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: ANALYSIS MODULE (NEW) -->
+            <div class="tab-page" id="tab-analysis">
+                <div class="tab-header-banner">
+                    <div>
+                        <h3 class="banner-title">Comprehensive Fleet Analysis Module</h3>
+                        <p class="banner-text">Predictive component failure forecasting, remaining useful life (RUL), driver safety scorecards, and maintenance investment ROI.</p>
+                    </div>
+                </div>
+
+                <!-- Analysis Executive KPI Grid -->
+                <section class="kpi-grid">
+                    <div class="kpi-card safe-card">
+                        <div class="kpi-header"><span class="kpi-title">Fleet Availability</span><div class="kpi-icon icon-emerald"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div></div>
+                        <div class="kpi-value text-emerald" id="an-availability">96.4%</div>
+                        <div class="kpi-footer text-emerald-subtle">Operational uptime</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-header"><span class="kpi-title">MTBF Reliability</span><div class="kpi-icon icon-blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div></div>
+                        <div class="kpi-value" id="an-mtbf">112 Days</div>
+                        <div class="kpi-footer text-muted">Mean Time Between Failures</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-header"><span class="kpi-title">Maintenance ROI</span><div class="kpi-icon icon-purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div></div>
+                        <div class="kpi-value text-purple" id="an-roi">4.8x</div>
+                        <div class="kpi-footer text-muted">₹1 routine avoids ₹4.80 breakdown</div>
+                    </div>
+                    <div class="kpi-card warning-card">
+                        <div class="kpi-header"><span class="kpi-title">Lubricant Degradation</span><div class="kpi-icon icon-amber"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div></div>
+                        <div class="kpi-value text-amber" id="an-oil-index">28.5%</div>
+                        <div class="kpi-footer text-amber-subtle">Average fleet viscosity drop</div>
+                    </div>
+                </section>
+
+                <!-- Predictive Failure Forecasting Section -->
+                <section class="card-table-container">
+                    <div class="table-header-info">
+                        <h3 class="section-title">Predictive Failure Forecasting & Remaining Useful Life (RUL)</h3>
+                        <span class="badge badge-neutral">Machine Learning & Rule Calibrated</span>
+                    </div>
+                    <div class="forecast-cards-grid" id="forecast-cards-container">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Driver Safety & Behavior Scorecards -->
+                <section class="card-table-container">
+                    <div class="table-header-info">
+                        <h3 class="section-title">Driver Safety & Fuel Optimization Scorecards</h3>
+                        <span class="badge badge-low">Telematics Logged</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="fleet-table">
+                            <thead>
+                                <tr>
+                                    <th>Driver Name</th>
+                                    <th>Assigned Vehicle</th>
+                                    <th>Safety Score</th>
+                                    <th>Efficiency Score</th>
+                                    <th>Harsh Braking / 100km</th>
+                                    <th>Idle Fuel Waste</th>
+                                    <th>Overall Grade</th>
+                                    <th>Observations</th>
+                                </tr>
+                            </thead>
+                            <tbody id="driver-scorecard-tbody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Risk Correlation & Strategic Directives -->
+                <div class="analysis-split-grid">
+                    <div class="card-table-container">
+                        <h4 class="section-title">Risk Factor Contribution Matrix</h4>
+                        <div class="correlation-bars-list" id="correlation-bars-container">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="card-table-container">
+                        <h4 class="section-title">Executive Fleet Analytics Directives</h4>
+                        <ul class="directives-list" id="directives-list-container">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: DRIVER PRE-TRIP CONSOLE (NEW) -->
+            <div class="tab-page" id="tab-driver-console">
+                <div class="tab-header-banner">
+                    <div>
+                        <h3 class="banner-title">Driver Pre-Trip Vehicle Safety Console</h3>
+                        <p class="banner-text">Mandatory pre-trip roadworthiness verification checklist, defect reporting, and safety clearance.</p>
+                    </div>
+                    <div class="driver-role-indicator">
+                        <span class="badge badge-neutral">Role: Certified Commercial Driver</span>
+                    </div>
+                </div>
+
+                <div class="driver-console-layout">
+                    <!-- Pre-trip Inspection Checklist Form -->
+                    <div class="card-table-container">
+                        <h3 class="section-title">Daily Pre-Trip Roadworthiness Checklist</h3>
+                        <p style="font-size:0.84rem; color:var(--text-secondary); margin-bottom:1.25rem">
+                            Inspect target vehicle before starting route. Defects found are immediately dispatched to the Vehicle Owner.
+                        </p>
+                        <form id="form-driver-inspection">
+                            <div class="form-group">
+                                <label for="insp-vehicle-select">Select Vehicle For Route</label>
+                                <select id="insp-vehicle-select" class="select-control select-lg"></select>
+                            </div>
+
+                            <div class="checklist-items-box">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="chk-tire" checked>
+                                    <span><strong>Tire Pressure & Tread Visual Check</strong> — Cold pressure visibly inflated, no severe punctures or bead cracks.</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="chk-oil" checked>
+                                    <span><strong>Engine Oil Dipstick & Fluid Levels</strong> — Engine oil within MIN/MAX marker, coolant reservoir full.</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="chk-brakes">
+                                    <span><strong>Brake Pedal Responsiveness</strong> — Firm pedal feel without excessive sponge travel or metal grinding sound.</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="chk-lights" checked>
+                                    <span><strong>Headlights, Indicators & Horn</strong> — Front/rear illumination and horn fully operational.</span>
+                                </label>
+                            </div>
+
+                            <div class="form-row" style="margin-top:1rem">
+                                <div class="form-group">
+                                    <label for="insp-odometer">Current Odometer (km) *</label>
+                                    <input type="number" id="insp-odometer" value="165000" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="insp-driver-name">Inspecting Driver Name *</label>
+                                    <input type="text" id="insp-driver-name" value="Ramesh Kumar" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="insp-remarks">Driver Notes & Observed Defects</label>
+                                <textarea id="insp-remarks" rows="2" placeholder="Report any abnormal vibrations, pedal feel, or tire warnings..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Submit Pre-Trip Safety Sign-off</button>
+                        </form>
+                    </div>
+
+                    <!-- Inspection Logs History -->
+                    <div class="card-table-container">
+                        <h3 class="section-title">Pre-Trip Safety Sign-off History</h3>
+                        <div class="table-responsive">
+                            <table class="fleet-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date/Time</th>
+                                        <th>Vehicle</th>
+                                        <th>Driver</th>
+                                        <th>Verdict</th>
+                                        <th>Driver Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inspection-history-tbody">
+                                    <!-- Populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: VEHICLE HEALTH MONITORING -->
+            <div class="tab-page" id="tab-vehicle-health">
+                <div class="vehicle-selector-bar">
+                    <div class="selector-label">Select Monitored Vehicle:</div>
+                    <select id="select-health-vehicle" class="select-control select-lg"></select>
+                    <div class="telemetry-badge-container">
+                        <span class="badge badge-neutral" id="health-source-label">OBD-II CAN Telemetry (Demo)</span>
+                        <span class="badge" id="health-overall-status-badge">NORMAL</span>
+                    </div>
+                </div>
+
+                <div class="health-grid">
+                    <!-- Engine Oil Card -->
+                    <div class="health-card">
+                        <div class="health-card-header">
+                            <div class="health-icon icon-amber"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                            <h4>Engine Oil Condition</h4>
+                        </div>
+                        <div class="health-card-body">
+                            <div class="metric-row"><span class="m-label">Oil Level:</span><span class="m-val" id="val-oil-level">--%</span></div>
+                            <div class="metric-row"><span class="m-label">Oil Pressure Status:</span><span class="m-val" id="val-oil-pressure">--</span></div>
+                            <div class="metric-row"><span class="m-label">Lubricant Condition:</span><span class="m-val" id="val-oil-condition">--</span></div>
+                            <div class="metric-row"><span class="m-label">Last Oil Change:</span><span class="m-val" id="val-oil-last">--</span></div>
+                            <div class="metric-row"><span class="m-label">Next Scheduled:</span><span class="m-val" id="val-oil-next">--</span></div>
+                            <div class="metric-row"><span class="m-label">Service Status:</span><span class="badge" id="val-oil-status">--</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Tire Monitoring Diagram Card -->
+                    <div class="health-card tire-card">
+                        <div class="health-card-header">
+                            <div class="health-icon icon-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
+                            <h4>Tire Pressure & Tread Depth Monitoring</h4>
+                        </div>
+                        <div class="tire-diagram-container">
+                            <div class="chassis-diagram">
+                                <div class="tire-node tire-fl" id="node-tire-fl">
+                                    <span class="tire-title">Front Left</span>
+                                    <span class="tire-psi" id="val-tire-fl-psi">-- PSI</span>
+                                    <span class="tire-tread" id="val-tire-fl-tread">Tread: -- mm</span>
+                                </div>
+                                <div class="tire-node tire-fr" id="node-tire-fr">
+                                    <span class="tire-title">Front Right</span>
+                                    <span class="tire-psi" id="val-tire-fr-psi">-- PSI</span>
+                                    <span class="tire-tread" id="val-tire-fr-tread">Tread: -- mm</span>
+                                </div>
+                                <div class="chassis-center-box">
+                                    <span class="chassis-label">Target Cold Spec</span>
+                                    <span class="target-psi" id="val-tire-target-psi">32.0 PSI</span>
+                                </div>
+                                <div class="tire-node tire-rl" id="node-tire-rl">
+                                    <span class="tire-title">Rear Left</span>
+                                    <span class="tire-psi" id="val-tire-rl-psi">-- PSI</span>
+                                    <span class="tire-tread" id="val-tire-rl-tread">Tread: -- mm</span>
+                                </div>
+                                <div class="tire-node tire-rr" id="node-tire-rr">
+                                    <span class="tire-title">Rear Right</span>
+                                    <span class="tire-psi" id="val-tire-rr-psi">-- PSI</span>
+                                    <span class="tire-tread" id="val-tire-rr-tread">Tread: -- mm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tire-footer-meta" id="val-tire-status-note">Tire wear and inspection status: Normal</div>
+                    </div>
+
+                    <!-- Coolant, Battery, Brakes, DTCs -->
+                    <div class="health-card">
+                        <div class="health-card-header">
+                            <div class="health-icon icon-emerald"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                            <h4>Powertrain & Safety Subsystems</h4>
+                        </div>
+                        <div class="health-card-body">
+                            <div class="metric-row"><span class="m-label">Coolant Temperature:</span><span class="m-val" id="val-coolant-temp">--°C</span></div>
+                            <div class="metric-row"><span class="m-label">Battery Health (SoH):</span><span class="m-val" id="val-battery-soh">--%</span></div>
+                            <div class="metric-row"><span class="m-label">Battery Voltage:</span><span class="m-val" id="val-battery-voltage">-- V</span></div>
+                            <div class="metric-row"><span class="m-label">Front Brake Pad Wear:</span><span class="m-val" id="val-brake-front">--%</span></div>
+                            <div class="metric-row"><span class="m-label">Rear Brake Pad Wear:</span><span class="m-val" id="val-brake-rear">--%</span></div>
+                            <div class="metric-row"><span class="m-label">Brake Fluid Status:</span><span class="m-val" id="val-brake-fluid">--</span></div>
+                            <div class="metric-row"><span class="m-label">Diagnostic Trouble Codes:</span><span class="m-val" id="val-dtc-codes">None</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: SMART REVIEWS & INTELLIGENCE -->
+            <div class="tab-page" id="tab-smart-reviews">
+                <div class="review-intelligence-header">
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-title">Total Analyzed</div>
+                            <div class="kpi-value" id="rev-kpi-total">--</div>
+                            <div class="kpi-footer text-muted" id="rev-period-display">--</div>
+                        </div>
+                        <div class="kpi-card safe-card">
+                            <div class="kpi-title">Positive Sentiment</div>
+                            <div class="kpi-value text-emerald" id="rev-kpi-pos">--</div>
+                            <div class="kpi-footer text-emerald-subtle">Praise & high satisfaction</div>
+                        </div>
+                        <div class="kpi-card warning-card">
+                            <div class="kpi-title">Neutral Sentiment</div>
+                            <div class="kpi-value text-amber" id="rev-kpi-neu">--</div>
+                            <div class="kpi-footer text-amber-subtle">Average feedback</div>
+                        </div>
+                        <div class="kpi-card alert-card">
+                            <div class="kpi-title">Negative Sentiment</div>
+                            <div class="kpi-value text-red" id="rev-kpi-neg">--</div>
+                            <div class="kpi-footer text-red-subtle">Criticism & complaints</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-analysis-insights-grid">
+                    <div class="insight-box">
+                        <h4 class="insight-heading">Frequently Reported Problems (AI Extracted)</h4>
+                        <ul class="insight-list" id="rev-problems-list"></ul>
+                    </div>
+                    <div class="insight-box">
+                        <h4 class="insight-heading">Common Customer Praise</h4>
+                        <ul class="insight-list" id="rev-praise-list"></ul>
+                    </div>
+                    <div class="insight-box alert-box-radar">
+                        <h4 class="insight-heading">Suspicious / Duplicate Review Detection Radar</h4>
+                        <p class="radar-text">Algorithms detect repeated duplicate text, aggressive bot phrasing, and abnormal burst frequencies for human moderator audit:</p>
+                        <ul class="insight-list" id="rev-suspicious-list"></ul>
+                    </div>
+                </div>
+
+                <!-- Customer Reviews Feed with Filter & Add Button -->
+                <section class="card-table-container">
+                    <div class="table-header-info">
+                        <h3 class="section-title">Verified Customer Reviews Feed</h3>
+                        <button class="btn btn-primary" id="btn-open-add-review">+ Submit Review</button>
+                    </div>
+                    <div class="reviews-feed-container" id="reviews-feed-list"></div>
+                </section>
+            </div>
+
+            <!-- TAB 5: SPRING AI ASSISTANT -->
+            <div class="tab-page" id="tab-ai-assistant">
+                <div class="ai-assistant-container">
+                    <div class="ai-chat-header">
+                        <div class="ai-avatar">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="ai-header-title">GreenOps AI Customer Assistant</h3>
+                            <p class="ai-header-desc">Powered by Spring AI & Grounded in Verified Fleet Records & Reviews</p>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages-scroll" id="chat-messages-container">
+                        <div class="chat-message msg-ai">
+                            <div class="msg-bubble">
+                                Hello! I am your <strong>GreenOps AI Assistant</strong>. I am strictly grounded in verified fleet specifications, telemetry readings, customer reviews, and maintenance documentation.
+                                <br><br>
+                                How can I help you today? You can click any of the suggested prompt pills below:
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prompt Suggestion Pills -->
+                    <div class="prompt-pills-row">
+                        <button class="pill-suggestion" data-prompt="Find suitable vehicles under 20 Lakhs with high fuel efficiency">Find under 20L</button>
+                        <button class="pill-suggestion" data-prompt="Compare GreenOps Hauler Pro Truck vs VoltStream EV side by side">Compare Truck vs EV</button>
+                        <button class="pill-suggestion" data-prompt="Summarize verified customer reviews and frequently reported problems">Summarize Reviews</button>
+                        <button class="pill-suggestion" data-prompt="What are the common problems and active diagnostic trouble codes for our vehicles?">Common Problems</button>
+                        <button class="pill-suggestion" data-prompt="Explain manufacturer recommended tire pressures and maintenance intervals">Maintenance Specs</button>
+                    </div>
+
+                    <form class="chat-input-bar" id="form-ai-chat">
+                        <input type="text" id="input-chat-query" placeholder="Ask about vehicles, budget, safety, reviews, or maintenance..." autocomplete="off" required>
+                        <button type="submit" class="btn btn-primary" id="btn-send-chat">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            Send
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- TAB 6: VEHICLE RECOMMENDATION ENGINE -->
+            <div class="tab-page" id="tab-recommendations">
+                <div class="recommender-layout">
+                    <!-- Preference Questionnaire Form -->
+                    <div class="recommender-form-card">
+                        <h3 class="card-title">Customer Preference Form</h3>
+                        <p class="card-desc">Specify your target transport requirements. Our matching engine will score and rank available vehicles using verified specs.</p>
+                        <form id="form-recommender">
+                            <div class="form-group">
+                                <label for="rec-budget">Maximum Budget Ceiling (₹)</label>
+                                <input type="number" id="rec-budget" value="2500000" step="100000">
+                            </div>
+                            <div class="form-group">
+                                <label for="rec-usage">Intended Usage Profile</label>
+                                <select id="rec-usage" class="select-control">
+                                    <option value="Commercial">Commercial (Heavy Freight / Courier Logistics)</option>
+                                    <option value="City">City (Urban Commute & Low Emissions)</option>
+                                    <option value="Highway">Highway (Long Distance Transport)</option>
+                                    <option value="Family">Family (Passenger Space & Maximum Safety)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="rec-fuel">Powertrain / Fuel Preference</label>
+                                <select id="rec-fuel" class="select-control">
+                                    <option value="No Preference">No Preference (Evaluate All)</option>
+                                    <option value="Electric">Electric (Pure Battery EV)</option>
+                                    <option value="Diesel">Diesel (High Torque & Payload)</option>
+                                    <option value="Petrol">Petrol</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="rec-min-eff">Min. Efficiency (km/L or km/kWh)</label>
+                                    <input type="number" id="rec-min-eff" value="6.0" step="0.5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="rec-safety">Safety Priority</label>
+                                    <select id="rec-safety" class="select-control">
+                                        <option value="Maximum">Maximum (5-Star NCAP)</option>
+                                        <option value="High">High (4-Star or better)</option>
+                                        <option value="Standard">Standard</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Find Matching Vehicles</button>
+                        </form>
+                    </div>
+
+                    <!-- Comparison Matrix & Results -->
+                    <div class="recommender-results-card">
+                        <h3 class="card-title">Matched Vehicle Ranking & Side-by-Side Matrix</h3>
+                        <div class="rec-cards-list" id="recommendation-results-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 7: GREEN DRIVING & SUSTAINABILITY -->
+            <div class="tab-page" id="tab-green-driving">
+                <div class="tab-header-banner">
+                    <div>
+                        <h3 class="banner-title">Green Driving & Sustainability Center</h3>
+                        <p class="banner-text">Quantified CO2 emissions analysis, eco-driving scorecards, and fleet decarbonization transition impact.</p>
+                    </div>
+                </div>
+
+                <div class="green-grid">
+                    <div class="card-table-container">
+                        <h4 class="section-title">Vehicle Emissions & Efficiency Index</h4>
+                        <div class="table-responsive">
+                            <table class="fleet-table">
+                                <thead>
+                                    <tr>
+                                        <th>Vehicle Model</th>
+                                        <th>Powertrain</th>
+                                        <th>Rated Efficiency</th>
+                                        <th>Estimated CO2 (g/km)</th>
+                                        <th>Eco Score</th>
+                                        <th>Calculation Methodology</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="green-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="green-insights-card">
+                        <h4 class="section-title">Fleet Electrification & Environmental Savings</h4>
+                        <div class="co2-comparison-box">
+                            <div class="co2-metric-stat">
+                                <span class="stat-number text-emerald">4.2 Tons</span>
+                                <span class="stat-label">Annual CO2 Saved per EV Transition</span>
+                            </div>
+                            <div class="co2-metric-stat">
+                                <span class="stat-number text-blue">72%</span>
+                                <span class="stat-label">Operational Energy Cost Reduction</span>
+                            </div>
+                        </div>
+                        <h5 class="sub-heading">Maintenance Actions That Improve Eco-Efficiency:</h5>
+                        <ul class="eco-tips-list" id="green-eco-tips-list"></ul>
+                        <div class="assumptions-note" id="green-assumptions-note"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 8: ALERTS & NOTIFICATIONS -->
+            <div class="tab-page" id="tab-notifications">
+                <div class="tab-header-banner">
+                    <div>
+                        <h3 class="banner-title">Smart Alerts & Notification Center</h3>
+                        <p class="banner-text">Continuous automated monitoring of tire pressures, brake margins, diagnostic fault codes, and overdue maintenance.</p>
+                    </div>
+                </div>
+                <div class="notifications-list" id="notifications-container"></div>
+            </div>
+
+            <!-- TAB 9: VEHICLE HEALTH REPORTS (PDF EXPORT) -->
+            <div class="tab-page" id="tab-reports">
+                <div class="report-controls-bar">
+                    <div class="selector-label">Select Vehicle for Official Health Report:</div>
+                    <select id="select-report-vehicle" class="select-control select-lg"></select>
+                    <button class="btn btn-primary" id="btn-print-report" onclick="window.print()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                        Print / Export to PDF
+                    </button>
+                </div>
+
+                <div class="report-document-sheet" id="report-sheet-container"></div>
+            </div>
+
+            <!-- TAB 10: DATABASE & JPA STORAGE (NEW) -->
+            <div class="tab-page" id="tab-database">
+                <div class="tab-header-banner">
+                    <div>
+                        <h3 class="banner-title">Database & Spring Data JPA Architecture</h3>
+                        <p class="banner-text">Relational persistence engine, JPA entities, schema definitions, live table metrics, and interactive database exploration.</p>
+                    </div>
+                    <div class="database-quick-actions" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                        <a href="/h2-console" target="_blank" class="btn btn-secondary btn-sm" id="btn-open-h2-console" title="Open H2 Database Web Console in new tab">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                            H2 SQL Console
+                        </a>
+                        <a href="/swagger-ui.html" target="_blank" class="btn btn-secondary btn-sm" id="btn-open-swagger" title="Open OpenAPI / Swagger Interactive REST API documentation">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                            Swagger UI Docs
+                        </a>
+                        <a href="/actuator/health" target="_blank" class="btn btn-secondary btn-sm" title="View Actuator Microservice Health Check">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                            Actuator Health
+                        </a>
+                        <button class="btn btn-primary btn-sm" id="btn-db-refresh" title="Refresh live database statistics">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+                            Refresh DB
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Database Metrics Banner -->
+                <section class="kpi-grid">
+                    <div class="kpi-card safe-card">
+                        <div class="kpi-header"><span class="kpi-title">Database Engine</span><div class="kpi-icon icon-emerald"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div></div>
+                        <div class="kpi-value text-emerald" id="db-stat-engine" style="font-size:1.35rem">H2 Database</div>
+                        <div class="kpi-footer text-emerald-subtle" id="db-stat-status">Status: CONNECTED & ONLINE</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-header"><span class="kpi-title">Total Records</span><div class="kpi-icon icon-blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div></div>
+                        <div class="kpi-value" id="db-stat-total-records">--</div>
+                        <div class="kpi-footer text-muted">Across 8 relational tables</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-header"><span class="kpi-title">ORM / Persistence</span><div class="kpi-icon icon-purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div></div>
+                        <div class="kpi-value text-purple" style="font-size:1.35rem">Spring Data JPA</div>
+                        <div class="kpi-footer text-muted">Hibernate DDL auto-sync</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-header"><span class="kpi-title">JDBC Connection</span><div class="kpi-icon icon-amber"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div></div>
+                        <div class="kpi-value text-amber" style="font-size:1rem; font-family:var(--font-mono)">jdbc:h2:mem:fleetdb</div>
+                        <div class="kpi-footer text-amber-subtle">User: sa (In-Memory / Zero-Setup)</div>
+                    </div>
+                </section>
+
+                <!-- Tables Overview Cards -->
+                <section class="card-table-container">
+                    <div class="table-header-info">
+                        <h3 class="section-title">Relational Tables & Entity Store</h3>
+                        <span class="badge badge-neutral">Click any table below to preview live rows</span>
+                    </div>
+                    <div class="db-tables-grid" id="db-tables-grid-container">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Live Table Data Viewer -->
+                <section class="card-table-container" id="db-table-viewer-section">
+                    <div class="table-header-info">
+                        <div>
+                            <h3 class="section-title" id="db-viewer-title">Table: vehicles (Live SQL Query)</h3>
+                            <p style="font-size:0.8rem; color:var(--text-secondary); margin:0" id="db-viewer-subtitle">Displaying persisted entities in database</p>
+                        </div>
+                        <div style="display:flex; gap:0.5rem; align-items:center;">
+                            <span class="badge badge-low" id="db-viewer-count-badge">5 Records</span>
+                            <button class="btn btn-secondary btn-sm" id="btn-reseed-db" title="Re-seed demo dataset">
+                                ↺ Re-seed Data
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                        <table class="fleet-table" id="db-live-table">
+                            <thead id="db-live-table-thead"></thead>
+                            <tbody id="db-live-table-tbody"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Role-Based Authentication & Verification -->
+    <div class="modal-overlay" id="modal-auth-login" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div>
+                    <h3 class="modal-title">Role-Based Login & Verification</h3>
+                    <p style="font-size:0.78rem; color:var(--text-muted)">Secure verification for Drivers and Vehicle Owners</p>
+                </div>
+                <button class="modal-close-btn" id="btn-close-auth-modal">&times;</button>
+            </div>
+            <form id="form-login">
+                <div class="modal-body form-body">
+                    <!-- Quick Demo Buttons -->
+                    <div class="demo-login-box">
+                        <span style="font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; font-weight:700">Quick 1-Click Role Logins:</span>
+                        <div style="display:flex; gap:0.5rem; margin-top:0.4rem;">
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-fill-owner" style="flex:1">
+                                🔑 Vehicle Owner
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-fill-driver" style="flex:1">
+                                🚚 Commercial Driver
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-login-email">Registered Email Address *</label>
+                        <input type="email" id="input-login-email" value="owner@greenoops.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-login-password">Account Password *</label>
+                        <input type="password" id="input-login-password" value="Owner@123" required>
+                    </div>
+
+                    <div class="verification-notice-card">
+                        <div style="font-size:0.8rem; font-weight:700; color:var(--color-emerald)">Verified Credentials System</div>
+                        <div style="font-size:0.76rem; color:var(--text-secondary); margin-top:2px">
+                            • <strong>Vehicle Owner:</strong> Full fleet management, Table A/B/C risks, analysis module, and financial oversight.<br>
+                            • <strong>Driver:</strong> Pre-trip vehicle inspection checklist, assigned telemetry, defect reporting, and route safety.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btn-cancel-auth">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Authenticate & Verify Role</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Add New Vehicle -->
+    <div class="modal-overlay" id="modal-add-vehicle" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Register New Vehicle</h3>
+                <button class="modal-close-btn" id="btn-close-add-modal">&times;</button>
+            </div>
+            <form id="form-add-vehicle">
+                <div class="modal-body form-body">
+                    <div class="form-group">
+                        <label for="input-reg">Registration Number *</label>
+                        <input type="text" id="input-reg" required placeholder="e.g. TN-38-XY-4321">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-model-name">Vehicle Model Name *</label>
+                        <input type="text" id="input-model-name" required placeholder="e.g. EcoDelivery Pro 3.0">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="select-type">Category *</label>
+                            <select id="select-type" required>
+                                <option value="Truck">Truck</option>
+                                <option value="Van">Van</option>
+                                <option value="Bus">Bus</option>
+                                <option value="Electric Car">Electric Car</option>
+                                <option value="Pickup">Pickup</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="select-fuel">Fuel Type *</label>
+                            <select id="select-fuel" required>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Petrol">Petrol</option>
+                                <option value="Electric">Electric</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="input-year">Manufacturing Year *</label>
+                            <input type="number" id="input-year" min="1980" max="2027" value="2022" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-odo">Odometer (km) *</label>
+                            <input type="number" id="input-odo" min="0" value="45000" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="input-price">Estimated Price (₹)</label>
+                            <input type="number" id="input-price" value="1800000">
+                        </div>
+                        <div class="form-group">
+                            <label for="input-service-date">Last Service Date</label>
+                            <input type="date" id="input-service-date">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btn-cancel-add">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Vehicle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Submit Customer Review -->
+    <div class="modal-overlay" id="modal-add-review" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Submit Customer Review</h3>
+                <button class="modal-close-btn" id="btn-close-review-modal">&times;</button>
+            </div>
+            <form id="form-submit-review">
+                <div class="modal-body form-body">
+                    <div class="form-group">
+                        <label for="select-review-vehicle">Select Vehicle *</label>
+                        <select id="select-review-vehicle" class="select-control" required></select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="input-review-author">Customer Name *</label>
+                            <input type="text" id="input-review-author" required placeholder="e.g. Rajesh Kannan">
+                        </div>
+                        <div class="form-group">
+                            <label for="select-review-rating">Rating (1 to 5 Stars) *</label>
+                            <select id="select-review-rating" class="select-control" required>
+                                <option value="5">★★★★★ (5 Stars - Excellent)</option>
+                                <option value="4">★★★★☆ (4 Stars - Good)</option>
+                                <option value="3">★★★☆☆ (3 Stars - Average)</option>
+                                <option value="2">★★☆☆☆ (2 Stars - Poor)</option>
+                                <option value="1">★☆☆☆☆ (1 Star - Critical Issues)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-review-title">Review Headline *</label>
+                        <input type="text" id="input-review-title" required placeholder="e.g. Dependable engine performance on delivery routes">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-review-comment">Detailed Feedback *</label>
+                        <textarea id="input-review-comment" rows="3" required placeholder="Describe your experience with fuel economy, maintenance, and handling..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btn-cancel-review">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit for AI Sentiment Audit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Log Maintenance Service Record -->
+    <div class="modal-overlay" id="modal-add-maintenance" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div>
+                    <h3 class="modal-title">Log Maintenance Service</h3>
+                    <p style="font-size:0.78rem; color:var(--text-muted)">Persist service history to database & update risk telemetry</p>
+                </div>
+                <button class="modal-close-btn" id="btn-close-maint-modal">&times;</button>
+            </div>
+            <form id="form-add-maintenance">
+                <div class="modal-body form-body">
+                    <div class="form-group">
+                        <label for="select-maint-vehicle">Select Target Vehicle *</label>
+                        <select id="select-maint-vehicle" class="select-control" required></select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="input-maint-date">Service Date *</label>
+                            <input type="date" id="input-maint-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="select-maint-type">Service Type *</label>
+                            <select id="select-maint-type" class="select-control" required>
+                                <option value="ROUTINE_SERVICE">Routine Scheduled Service</option>
+                                <option value="BREAKDOWN_REPAIR">Breakdown & Corrective Repair</option>
+                                <option value="TIRE_REPLACEMENT">Tire Replacement & Balancing</option>
+                                <option value="BATTERY">Battery & Electrical Service</option>
+                                <option value="INSPECTION">Comprehensive Safety Inspection</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-maint-cost">Service Cost (₹) *</label>
+                        <input type="number" id="input-maint-cost" min="0" step="100" value="5000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-maint-desc">Technician Notes & Replaced Parts *</label>
+                        <textarea id="input-maint-desc" rows="3" required placeholder="e.g. Engine oil and filter replaced; brake fluid flushed; multipoint check ok"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btn-cancel-maint">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save to Database & Update Risk</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Vehicle Details & Maintenance History -->
+    <div class="modal-overlay" id="modal-vehicle-details" aria-hidden="true">
+        <div class="modal-card modal-lg" style="max-width: 780px;">
+            <div class="modal-header">
+                <div>
+                    <h3 class="modal-title" id="vd-title">Vehicle Specifications & History</h3>
+                    <p style="font-size:0.78rem; color:var(--text-muted)" id="vd-reg-subtitle">Registration and comprehensive telemetry</p>
+                </div>
+                <button class="modal-close-btn" id="btn-close-vd-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Vehicle Quick Specs Grid -->
+                <div class="vd-specs-grid" id="vd-specs-container" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:0.75rem; margin-bottom:1.25rem;">
+                    <!-- Populated by JavaScript -->
+                </div>
+
+                <div class="table-header-info" style="margin-top:1rem; margin-bottom:0.5rem">
+                    <h4 class="section-title">Complete Maintenance History</h4>
+                    <button class="btn btn-primary btn-sm" id="btn-vd-log-maint">+ Log Service</button>
+                </div>
+                <div class="table-responsive" style="max-height: 260px; overflow-y: auto;">
+                    <table class="fleet-table" id="vd-maint-table">
+                        <thead>
+                            <tr>
+                                <th>Service Date</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th class="text-right">Cost (₹)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vd-maint-tbody">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer" style="display:flex; justify-content:space-between;">
+                <button type="button" class="btn btn-danger btn-sm" id="btn-vd-delete-vehicle">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    Delete Vehicle
+                </button>
+                <button type="button" class="btn btn-secondary" id="btn-close-vd-footer">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Teal Voice Assistant Button -->
+    <div class="floating-voice-widget" id="floating-voice-btn" title="AI Voice Assistant">
+        <button class="btn-voice-assistant" id="btn-trigger-voice" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" y1="19" x2="12" y2="22"/>
+            </svg>
+            <span>Voice assistant</span>
+        </button>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="js/app.js"></script>
+</body>
 </html>
