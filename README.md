@@ -1,19 +1,19 @@
-# @babel/code-frame
+# @babel/helper-module-transforms
 
-> Generate errors that contain a code frame that point to source locations.
+> Babel helper functions for implementing ES6 module transformations
 
-See our website [@babel/code-frame](https://babeljs.io/docs/babel-code-frame) for more information.
+See our website [@babel/helper-module-transforms](https://babeljs.io/docs/babel-helper-module-transforms) for more information.
 
 ## Install
 
 Using npm:
 
 ```sh
-npm install --save-dev @babel/code-frame
+npm install --save @babel/helper-module-transforms
 ```
 
 or using yarn:
 
 ```sh
-yarn add @babel/code-frame --dev
+yarn add @babel/helper-module-transforms
 ```
