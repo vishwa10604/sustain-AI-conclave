@@ -16,6 +16,8 @@ const blankVehicle = {
   capacityVolume: '',
   fuelType: '',
   fuelEfficiency: '',
+  fuelTankCapacityLitres: '',
+  fuelRemainingLitres: '',
   odometer: '',
   currentLocationLatitude: '',
   currentLocationLongitude: '',
@@ -38,6 +40,9 @@ export default function Vehicles({ mode = 'fleet' }) {
   const [query, setQuery] = useState('')
   const [showCreate, setShowCreate] = useState(false)
   const [vehicleForm, setVehicleForm] = useState(blankVehicle)
+  const [fuelEdits, setFuelEdits] = useState({})
+  const [fuelSavingId, setFuelSavingId] = useState('')
+  const [fuelError, setFuelError] = useState('')
   const [createError, setCreateError] = useState('')
   const [creating, setCreating] = useState(false)
   const [showMaintenanceForm, setShowMaintenanceForm] = useState(false)
@@ -114,12 +119,15 @@ export default function Vehicles({ mode = 'fleet' }) {
       capacityKg: Number(vehicleForm.capacityKg),
       capacityVolume: Number(vehicleForm.capacityVolume),
       fuelEfficiency: Number(vehicleForm.fuelEfficiency),
+      fuelTankCapacityLitres: Number(vehicleForm.fuelTankCapacityLitres),
+      fuelRemainingLitres: Number(vehicleForm.fuelRemainingLitres),
       odometer: Number(vehicleForm.odometer),
       currentLocationLatitude: vehicleForm.currentLocationLatitude === '' ? null : Number(vehicleForm.currentLocationLatitude),
       currentLocationLongitude: vehicleForm.currentLocationLongitude === '' ? null : Number(vehicleForm.currentLocationLongitude),
       lastServiceDate: vehicleForm.lastServiceDate || null,
       nextServiceDue: vehicleForm.nextServiceDue || null,
     }
+
     try {
       await apiRequest('/vehicles', { method: 'POST', body: JSON.stringify(payload) })
       setVehicleForm(blankVehicle)
@@ -129,6 +137,29 @@ export default function Vehicles({ mode = 'fleet' }) {
       setCreateError(requestError.message || 'Vehicle could not be added.')
     } finally {
       setCreating(false)
+    }
+  }
+
+  async function saveFuelLevel(vehicle) {
+    const fuelRemainingLitres = Number(fuelEdits[vehicle.id] ?? vehicle.fuelRemainingLitres)
+    setFuelError('')
+    if (!Number.isFinite(fuelRemainingLitres) || fuelRemainingLitres < 0
+      || fuelRemainingLitres > Number(vehicle.fuelTankCapacityLitres)) {
+      setFuelError(`${vehicle.registrationNumber}: enter fuel from 0 to ${vehicle.fuelTankCapacityLitres} L.`)
+      return
+    }
+    setFuelSavingId(String(vehicle.id))
+    try {
+      const updatedVehicle = await apiRequest(`/vehicles/${vehicle.id}/fuel`, {
+        method: 'PATCH',
+        body: JSON.stringify({ fuelRemainingLitres }),
+      })
+      setVehicles(current => current.map(item => item.id === updatedVehicle.id ? updatedVehicle : item))
+      setFuelEdits(current => ({ ...current, [vehicle.id]: String(updatedVehicle.fuelRemainingLitres) }))
+    } catch (requestError) {
+      setFuelError(requestError.message || 'Fuel level could not be saved.')
+    } finally {
+      setFuelSavingId('')
     }
   }
 
@@ -258,7 +289,9 @@ export default function Vehicles({ mode = 'fleet' }) {
               <label>Capacity (kg)<input type="number" min="0.01" step="any" value={vehicleForm.capacityKg} onChange={event => setVehicleForm({ ...vehicleForm, capacityKg: event.target.value })} required /></label>
               <label>Capacity (m³)<input type="number" min="0.01" step="any" value={vehicleForm.capacityVolume} onChange={event => setVehicleForm({ ...vehicleForm, capacityVolume: event.target.value })} required /></label>
               <label>Fuel type<input value={vehicleForm.fuelType} onChange={event => setVehicleForm({ ...vehicleForm, fuelType: event.target.value })} required /></label>
-              <label>Fuel efficiency<input type="number" min="0.01" step="any" value={vehicleForm.fuelEfficiency} onChange={event => setVehicleForm({ ...vehicleForm, fuelEfficiency: event.target.value })} required /></label>
+              <label>Fuel efficiency (km/L)<input type="number" min="0.01" step="any" value={vehicleForm.fuelEfficiency} onChange={event => setVehicleForm({ ...vehicleForm, fuelEfficiency: event.target.value })} required /></label>
+              <label>Fuel tank capacity (L)<input type="number" min="0.1" step="any" value={vehicleForm.fuelTankCapacityLitres} onChange={event => setVehicleForm({ ...vehicleForm, fuelTankCapacityLitres: event.target.value })} required /></label>
+              <label>Fuel remaining (L)<input type="number" min="0" step="any" value={vehicleForm.fuelRemainingLitres} onChange={event => setVehicleForm({ ...vehicleForm, fuelRemainingLitres: event.target.value })} required /></label>
               <label>Odometer<input type="number" min="0" step="any" value={vehicleForm.odometer} onChange={event => setVehicleForm({ ...vehicleForm, odometer: event.target.value })} required /></label>
               <label>Availability<select value={vehicleForm.status} onChange={event => setVehicleForm({ ...vehicleForm, status: event.target.value })}><option>AVAILABLE</option><option>ON_TRIP</option><option>UNAVAILABLE</option><option>MAINTENANCE</option><option>OUT_OF_SERVICE</option></select></label>
               <label>Recorded latitude (optional)<input type="number" min="-90" max="90" step="any" value={vehicleForm.currentLocationLatitude} onChange={event => setVehicleForm({ ...vehicleForm, currentLocationLatitude: event.target.value })} /></label>
@@ -286,20 +319,36 @@ export default function Vehicles({ mode = 'fleet' }) {
         {!error && Array.isArray(vehicles) && filteredVehicles.length > 0 && (
           <div className="table-scroll">
             <table className="data-table">
-              <thead><tr><th>Registration</th><th>Type</th><th>Capacity</th><th>Fuel</th><th>Status</th><th>Next service</th></tr></thead>
+              <thead><tr><th>Registration</th><th>Type</th><th>Capacity</th><th>Fuel / efficiency</th><th>Fuel remaining</th><th>Status</th><th>Next service</th></tr></thead>
               <tbody>
                 {filteredVehicles.map(vehicle => (
                   <tr key={vehicle.id}>
                     <td>{vehicle.registrationNumber}</td>
                     <td>{vehicle.vehicleType}</td>
                     <td>{vehicle.capacityKg} kg · {vehicle.capacityVolume} m³</td>
-                    <td>{vehicle.fuelType || 'Not recorded'}</td>
+                    <td>{vehicle.fuelType || 'Not recorded'} · {vehicle.fuelEfficiency || '—'} km/L</td>
+                    <td>
+                      {vehicle.fuelTankCapacityLitres != null ? (
+                        <div className="fuel-level-editor">
+                          <span>of {vehicle.fuelTankCapacityLitres} L</span>
+                          <input aria-label={`Fuel remaining for ${vehicle.registrationNumber}`} type="number"
+                            min="0" max={vehicle.fuelTankCapacityLitres} step="any"
+                            value={fuelEdits[vehicle.id] ?? vehicle.fuelRemainingLitres ?? ''}
+                            onChange={event => setFuelEdits(current => ({ ...current, [vehicle.id]: event.target.value }))} />
+                          <button className="text-button" type="button" disabled={fuelSavingId === String(vehicle.id)}
+                            onClick={() => saveFuelLevel(vehicle)}>
+                            {fuelSavingId === String(vehicle.id) ? 'Saving…' : 'Save fuel'}
+                          </button>
+                        </div>
+                      ) : 'Fuel level not recorded'}
+                    </td>
                     <td><span className="status-badge info">{(vehicle.status || 'UNKNOWN').replaceAll('_', ' ')}</span></td>
                     <td>{date(vehicle.nextServiceDue)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            {fuelError && <ErrorState message={fuelError} />}
           </div>
         )}
       </section>

@@ -13,7 +13,7 @@ export default function Drivers() {
   const [error, setError] = useState('')
   const [query, setQuery] = useState('')
   const [showForm, setShowForm] = useState(false)
-  const [form, setForm] = useState({ name: '', email: '', password: '', licenseNumber: '', licenseExpiry: '' })
+  const [form, setForm] = useState({ name: '', email: '', password: '', licenseNumber: '', licenseExpiry: '', dateOfBirth: '' })
   const [formError, setFormError] = useState('')
   const [saving, setSaving] = useState(false)
   const [notice, setNotice] = useState('')
@@ -54,7 +54,7 @@ export default function Drivers() {
     try {
       await apiRequest('/drivers', { method: 'POST', body: JSON.stringify(form) })
       setNotice(`Driver ${form.name} was added. They can now sign in with the email and password you assigned.`)
-      setForm({ name: '', email: '', password: '', licenseNumber: '', licenseExpiry: '' })
+      setForm({ name: '', email: '', password: '', licenseNumber: '', licenseExpiry: '', dateOfBirth: '' })
       setShowForm(false)
       await loadDrivers()
     } catch (requestError) {
@@ -84,6 +84,7 @@ export default function Drivers() {
               <label>Temporary password<input type="password" minLength="8" required value={form.password} onChange={event => setForm({ ...form, password: event.target.value })} /></label>
               <label>License number<input required value={form.licenseNumber} onChange={event => setForm({ ...form, licenseNumber: event.target.value })} /></label>
               <label>License expiry<input type="date" required value={form.licenseExpiry} onChange={event => setForm({ ...form, licenseExpiry: event.target.value })} /></label>
+              <label>Date of birth<input type="date" required value={form.dateOfBirth} onChange={event => setForm({ ...form, dateOfBirth: event.target.value })} /></label>
             </div>
             {formError && <ErrorState message={`Driver could not be created: ${formError}`} />}
             <div className="form-actions">

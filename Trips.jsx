@@ -37,8 +37,11 @@ export default function Trips() {
   const [query, setQuery] = useState('')
   const [showForm, setShowForm] = useState(false)
   const [form, setForm] = useState(initialForm)
+  const [createAssignment, setCreateAssignment] = useState({ driverId: '', vehicleId: '' })
   const [saving, setSaving] = useState(false)
   const [drivers, setDrivers] = useState([])
+  const [driversLoading, setDriversLoading] = useState(true)
+  const [driversError, setDriversError] = useState('')
   const [vehicles, setVehicles] = useState([])
   const [assignmentTarget, setAssignmentTarget] = useState(null)
   const [assignment, setAssignment] = useState({ vehicleId: '', driverId: '' })
@@ -63,12 +66,20 @@ export default function Trips() {
 
   useEffect(() => { loadTrips() }, [loadTrips])
   const loadResources = useCallback(async () => {
-    const [driversResult, vehiclesResult] = await Promise.allSettled([
-      apiRequest('/drivers'),
-      apiRequest('/vehicles'),
-    ])
-    setDrivers(driversResult.status === 'fulfilled' ? driversResult.value : [])
-    setVehicles(vehiclesResult.status === 'fulfilled' ? vehiclesResult.value : [])
+    setDriversLoading(true)
+    try {
+      const [driversResult, vehiclesResult] = await Promise.allSettled([
+        apiRequest('/drivers'),
+        apiRequest('/vehicles'),
+      ])
+      setDrivers(driversResult.status === 'fulfilled' ? driversResult.value : [])
+      setVehicles(vehiclesResult.status === 'fulfilled' ? vehiclesResult.value : [])
+      setDriversError(driversResult.status === 'rejected'
+        ? driversResult.reason.message || 'Unable to load available drivers.'
+        : '')
+    } finally {
+      setDriversLoading(false)
+    }
   }, [])
   useEffect(() => { loadResources() }, [loadResources])
   useEffect(() => {
@@ -83,6 +94,35 @@ export default function Trips() {
     return trips.filter(trip => [trip.referenceNumber, trip.originName, trip.destinationName, trip.status]
       .some(value => String(value || '').toLowerCase().includes(text)))
   }, [trips, query])
+
+  const availableDrivers = useMemo(() => drivers
+    .filter(driver => driver.availabilityStatus === 'AVAILABLE'), [drivers])
+
+  const latestTripByDriver = useMemo(() => {
+    const latestTrips = new Map()
+    if (!Array.isArray(trips)) return latestTrips
+    trips.forEach(trip => {
+      if (trip.driverId == null) return
+      const latestEventAt = Array.isArray(trip.events)
+        ? trip.events.reduce((latest, event) => {
+          const timestamp = new Date(event.eventTimestamp).getTime()
+          return Number.isFinite(timestamp) ? Math.max(latest, timestamp) : latest
+        }, 0)
+        : 0
+      const activityAt = latestEventAt || new Date(trip.requestedPickupTime).getTime() || 0
+      const current = latestTrips.get(String(trip.driverId))
+      if (!current || activityAt > current.activityAt) {
+        latestTrips.set(String(trip.driverId), { trip, activityAt })
+      }
+    })
+    return new Map([...latestTrips].map(([driverId, value]) => [driverId, value.trip]))
+  }, [trips])
+
+  const availableVehiclesForForm = useMemo(() => vehicles.filter(vehicle =>
+    vehicle.status === 'AVAILABLE'
+    && (!form.cargoWeightKg || Number(vehicle.capacityKg) >= Number(form.cargoWeightKg))
+    && (!form.cargoVolume || Number(vehicle.capacityVolume) >= Number(form.cargoVolume))),
+  [vehicles, form.cargoWeightKg, form.cargoVolume])
 
   function updateField(event) {
     setForm(current => ({ ...current, [event.target.name]: event.target.value }))
@@ -118,6 +158,14 @@ export default function Trips() {
     event.preventDefault()
     setSubmitError('')
     setNotice('')
+    if (!createAssignment.driverId) {
+      setSubmitError('Select an available driver before creating the trip.')
+      return
+    }
+    if (!createAssignment.vehicleId) {
+      setSubmitError('Select an available vehicle that can carry this load before creating the trip.')
+      return
+    }
     setSaving(true)
     try {
       const payload = {
@@ -132,9 +180,24 @@ export default function Trips() {
         requestedPickupTime: asIsoDateTime(form.requestedPickupTime),
         deliveryDeadline: asIsoDateTime(form.deliveryDeadline),
       }
-      await apiRequest('/trips', { method: 'POST', body: JSON.stringify(payload) })
-      setNotice('Trip created successfully.')
+      const createdTrip = await apiRequest('/trips', { method: 'POST', body: JSON.stringify(payload) })
+      let successMessage = 'Trip created successfully.'
+      try {
+        await apiRequest(`/trips/${createdTrip.id}/assign`, {
+          method: 'POST',
+          body: JSON.stringify({
+            vehicleId: Number(createAssignment.vehicleId),
+            driverId: Number(createAssignment.driverId),
+          }),
+        })
+        const selectedDriver = availableDrivers.find(driver => String(driver.id) === createAssignment.driverId)
+        successMessage = `Trip created and assigned to ${selectedDriver?.name || 'the selected driver'}.`
+      } catch (assignmentRequestError) {
+        successMessage = `Trip created, but driver assignment failed: ${assignmentRequestError.message || 'Please assign it from the trip list.'}`
+      }
+      setNotice(successMessage)
       setForm(initialForm)
+      setCreateAssignment({ driverId: '', vehicleId: '' })
       setShowForm(false)
       await Promise.all([loadTrips(), loadResources()])
     } catch (requestError) {
@@ -196,9 +259,11 @@ export default function Trips() {
             <h2>Trip assignment</h2>
             <p className="panel-description">Trips are loaded from the fleet service.</p>
           </div>
-          <button className="primary-btn compact-btn" type="button" onClick={() => setShowForm(value => !value)}>
-            {showForm ? 'Close form' : 'Create trip'}
-          </button>
+          <div className="table-action-group">
+            <button className="primary-btn compact-btn" type="button" onClick={() => setShowForm(value => !value)}>
+              {showForm ? 'Close form' : 'Create trip'}
+            </button>
+          </div>
         </div>
 
         {notice && <div className="success-message" role="status">{notice}</div>}
@@ -225,6 +290,36 @@ export default function Trips() {
               <label>Pickup time<input name="requestedPickupTime" type="datetime-local" value={form.requestedPickupTime} onChange={updateField} required /></label>
               <label>Delivery deadline<input name="deliveryDeadline" type="datetime-local" value={form.deliveryDeadline} onChange={updateField} required /></label>
               <label>Priority<select name="priority" value={form.priority} onChange={updateField}><option>LOW</option><option>MEDIUM</option><option>HIGH</option><option>URGENT</option></select></label>
+              <label>Available driver
+                <select required value={createAssignment.driverId} disabled={driversLoading || Boolean(driversError) || availableDrivers.length === 0}
+                  onChange={event => setCreateAssignment({ driverId: event.target.value, vehicleId: '' })}>
+                  <option value="">Select an available driver</option>
+                  {availableDrivers.map(driver => {
+                    const latestTrip = latestTripByDriver.get(String(driver.id))
+                    return <option key={driver.id} value={driver.id}>
+                      {driver.name} · {latestTrip ? `Latest: ${latestTrip.referenceNumber}` : 'No previous trip'}
+                    </option>
+                  })}
+                </select>
+                {driversLoading && <span className="form-hint">Loading available drivers…</span>}
+                {driversError && <span className="form-hint">Drivers unavailable: {driversError}</span>}
+              </label>
+              {createAssignment.driverId && (
+                <label>Available vehicle
+                  <select required value={createAssignment.vehicleId}
+                    onChange={event => setCreateAssignment(current => ({ ...current, vehicleId: event.target.value }))}>
+                    <option value="">Select a vehicle for this load</option>
+                    {availableVehiclesForForm.map(vehicle => (
+                      <option key={vehicle.id} value={vehicle.id}>
+                        {vehicle.registrationNumber} · {vehicle.vehicleType} · {vehicle.capacityKg} kg / {vehicle.capacityVolume} m³
+                      </option>
+                    ))}
+                  </select>
+                  {availableVehiclesForForm.length === 0 && (
+                    <span className="form-hint">No available vehicle meets this load’s capacity. Adjust the cargo or make a suitable vehicle available.</span>
+                  )}
+                </label>
+              )}
             </div>
             {submitError && <ErrorState message={`Trip creation failed: ${submitError}`} />}
             <div className="form-actions">

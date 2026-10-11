@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { signIn } from '../lib/api'
+import Brand from '../components/Brand'
 
 export default function DriverLogin() {
   const navigate = useNavigate()
@@ -31,7 +32,8 @@ export default function DriverLogin() {
     <div className="login-page dark-login">
       <form className="login-card dark-card" onSubmit={handleSubmit}>
         <div className="login-header">
-          <span className="eyebrow">FleetMind AI · Driver access</span>
+          <Brand />
+          <span className="eyebrow">Driver access</span>
           <h1>Driver sign in</h1>
           <p>Access your assigned fleet workspace.</p>
         </div>
@@ -50,6 +52,7 @@ export default function DriverLogin() {
           {loading ? 'Signing in…' : 'Sign in as Driver'}
         </button>
         <p className="login-switch">Manager? <Link to="/manager-login">Sign in here</Link></p>
+        <p className="login-switch">New to Verdant Fleet? <Link to="/sign-up?role=DRIVER">Sign up</Link></p>
         <p className="login-switch"><Link to="/role-selection">Back to role selection</Link></p>
       </form>
     </div>

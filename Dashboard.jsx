@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Activity, ArrowDownRight, ArrowUpRight, Navigation, Truck } from 'lucide-react'
+import {
+  Boxes, CheckCircle2, Clock3, Navigation, PackageCheck, ShieldAlert,
+  TriangleAlert, Truck, Wrench,
+} from 'lucide-react'
 import Layout from '../components/Layout'
 import StepTracker from '../components/ui/StepTracker'
 import { apiRequest } from '../lib/api'
@@ -52,15 +55,15 @@ function StatusBadge({ status }) {
   return <span className={`status-badge ${style}`}>{(status || 'UNKNOWN').replaceAll('_', ' ')}</span>
 }
 
-function Metric({ label, value, hint, trend = 'neutral' }) {
+function Metric({ label, value, description, icon: Icon, tone, featured = false }) {
   return (
-    <article className="metric-card">
-      <div className="metric-label">{label}</div>
-      <div className="metric-value">{value ?? 'Insufficient data'}</div>
-      <div className={`metric-hint ${trend}`}>
-        {trend === 'up' ? <ArrowUpRight size={13} /> : trend === 'down' ? <ArrowDownRight size={13} /> : <Activity size={13} />}
-        <span>{hint}</span>
+    <article className={`metric-card metric-${tone}${featured ? ' metric-card-featured' : ''}`}>
+      <div className="metric-card-heading">
+        <div className="metric-label">{label}</div>
+        <span className="metric-icon"><Icon size={18} strokeWidth={2} aria-hidden="true" /></span>
       </div>
+      <div className="metric-value">{value ?? 'Insufficient data'}</div>
+      <div className="metric-hint">{description}</div>
     </article>
   )
 }
@@ -70,7 +73,6 @@ export default function Dashboard() {
   const [trips, setTrips] = useState(null)
   const [vehicles, setVehicles] = useState(null)
   const [drivers, setDrivers] = useState(null)
-  const [alerts, setAlerts] = useState(null)
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(true)
   const [query, setQuery] = useState('')
@@ -90,20 +92,17 @@ export default function Dashboard() {
       apiRequest('/trips'),
       apiRequest('/vehicles'),
       apiRequest('/drivers'),
-      apiRequest('/alerts'),
     ])
-    const [metricsResult, tripsResult, vehiclesResult, driversResult, alertsResult] = requests
+    const [metricsResult, tripsResult, vehiclesResult, driversResult] = requests
     setMetrics(metricsResult.status === 'fulfilled' ? metricsResult.value : null)
     setTrips(tripsResult.status === 'fulfilled' ? tripsResult.value : null)
     setVehicles(vehiclesResult.status === 'fulfilled' ? vehiclesResult.value : null)
     setDrivers(driversResult.status === 'fulfilled' ? driversResult.value : null)
-    setAlerts(alertsResult.status === 'fulfilled' ? alertsResult.value : null)
     setErrors({
       metrics: metricsResult.status === 'rejected' ? metricsResult.reason.message : '',
       trips: tripsResult.status === 'rejected' ? tripsResult.reason.message : '',
       vehicles: vehiclesResult.status === 'rejected' ? vehiclesResult.reason.message : '',
       drivers: driversResult.status === 'rejected' ? driversResult.reason.message : '',
-      alerts: alertsResult.status === 'rejected' ? alertsResult.reason.message : '',
     })
     setLoading(false)
   }, [])
@@ -130,7 +129,11 @@ export default function Dashboard() {
 
   const availableVehicles = Array.isArray(vehicles) ? vehicles.filter(vehicle => vehicle.status === 'AVAILABLE').length : null
   const onTripVehicles = Array.isArray(vehicles) ? vehicles.filter(vehicle => vehicle.status === 'ON_TRIP').length : null
-  const unavailableVehicles = Array.isArray(vehicles) ? vehicles.filter(vehicle => ['MAINTENANCE', 'UNAVAILABLE', 'RESTRICTED'].includes(vehicle.status)).length : null
+  const maintenanceVehicles = Array.isArray(vehicles) ? vehicles.filter(vehicle => vehicle.status === 'MAINTENANCE').length : null
+  const restrictedVehicles = Array.isArray(vehicles)
+    ? vehicles.filter(vehicle => ['RESTRICTED', 'UNAVAILABLE', 'OUT_OF_SERVICE'].includes(vehicle.status)).length : null
+  const unavailableVehicles = maintenanceVehicles === null || restrictedVehicles === null
+    ? null : maintenanceVehicles + restrictedVehicles
   const awaitingAssignment = Array.isArray(trips) ? trips.filter(trip => trip.status === 'REQUESTED').length : null
   const deliveredTrips = Array.isArray(trips) ? trips.filter(trip => trip.status === 'DELIVERED').length : null
   const delayedTrips = metrics?.delayedTrips ?? (Array.isArray(trips) ? trips.filter(trip => trip.status === 'DELAYED').length : null)
@@ -138,27 +141,33 @@ export default function Dashboard() {
   const fleetUtilization = Array.isArray(vehicles) && vehicles.length
     ? `${Math.round((onTripVehicles / vehicles.length) * 100)}%` : null
 
-  async function acknowledgeAlert(alertId) {
-    try {
-      await apiRequest(`/alerts/${alertId}/acknowledge`, { method: 'POST' })
-      await loadData()
-    } catch (requestError) {
-      setErrors(current => ({ ...current, alerts: requestError.message || 'Unable to acknowledge alert.' }))
-    }
-  }
-
   return (
-    <Layout title="Live operations">
-      <div className="kpi-strip">
-        <Metric label="Total vehicles" value={metrics?.totalVehicles ?? vehicles?.length} hint="Source: fleet API" />
-        <Metric label="Available" value={metrics?.availableVehicles ?? availableVehicles} hint="Status: available" trend="up" />
-        <Metric label="On trip" value={onTripVehicles} hint="From vehicle status" />
-        <Metric label="Unavailable / restricted" value={unavailableVehicles} hint="Maintenance or restricted" />
-        <Metric label="Active trips" value={activeTrips} hint="Assigned and in progress" />
-        <Metric label="Awaiting assignment" value={awaitingAssignment} hint="Requested trip status" />
-        <Metric label="Delivered" value={metrics?.completedTrips ?? deliveredTrips} hint="Delivered trip status" trend="up" />
-        <Metric label="At-risk / delayed" value={delayedTrips} hint="Trips with delayed status" trend="down" />
-      </div>
+    <Layout title="Assigned Trips" showGlobalSearch={false}>
+      <section className="metric-section" aria-label="Fleet vehicle metrics">
+        <div className="metric-section-heading">
+          <div><Boxes size={16} /><h2>Fleet snapshot</h2></div>
+          <span>Vehicle availability and readiness</span>
+        </div>
+        <div className="kpi-strip">
+          <Metric label="Total vehicles" value={metrics?.totalVehicles ?? vehicles?.length} description="Registered fleet vehicles" icon={Boxes} tone="blue" featured />
+          <Metric label="Available" value={metrics?.availableVehicles ?? availableVehicles} description="Ready for assignment" icon={CheckCircle2} tone="green" />
+          <Metric label="On trip" value={metrics?.onTripVehicles ?? onTripVehicles} description="Currently assigned to trips" icon={Truck} tone="teal" />
+          <Metric label="Maintenance" value={maintenanceVehicles} description="Currently in maintenance" icon={Wrench} tone="amber" />
+          <Metric label="Restricted" value={restrictedVehicles} description="Unavailable or out of service" icon={ShieldAlert} tone="red" />
+        </div>
+      </section>
+      <section className="metric-section metric-section-trips" aria-label="Trip metrics">
+        <div className="metric-section-heading">
+          <div><Navigation size={16} /><h2>Trip activity</h2></div>
+          <span>Live status from recorded trip data</span>
+        </div>
+        <div className="kpi-strip kpi-strip-secondary">
+          <Metric label="Active trips" value={activeTrips} description="Assigned or in progress" icon={Navigation} tone="blue" />
+          <Metric label="Awaiting assignment" value={awaitingAssignment} description="Requested or recommended" icon={Clock3} tone="amber" />
+          <Metric label="Delivered" value={metrics?.completedTrips ?? deliveredTrips} description="Marked as delivered" icon={PackageCheck} tone="green" />
+          <Metric label="At-risk / delayed" value={delayedTrips} description="Trips marked delayed" icon={TriangleAlert} tone="red" />
+        </div>
+      </section>
 
       <div className="map-list-switch" role="group" aria-label="Map and trip list views">
         <button type="button" className={showTripList ? 'selected' : ''} onClick={() => setShowTripList(value => !value)}>
@@ -225,15 +234,15 @@ export default function Dashboard() {
               <div className="tracking-title">Fleet map</div>
               <div className="tracking-mini">
                 {selectedTrip
-                  ? `${selectedTrip.originName} → ${selectedTrip.destinationName} · Google Maps`
+                  ? `${selectedTrip.originName} → ${selectedTrip.destinationName} · OSRM route on Google Maps`
                   : 'Satellite fleet view · recorded fleet coordinates'}
               </div>
             </div>
             <div className="map-legend">
               <span><i /> Truck markers · active-trip preview is simulated</span>
               <span>{routeState === 'loading' ? 'Getting Google route…'
-                : roadRoute ? `${roadRoute.distanceKm.toFixed(1)} km · ${Math.round(roadRoute.durationMinutes)} min (Google)`
-                : selectedTripHasCoords ? 'Google road route unavailable' : 'Select a trip with coordinates'}</span>
+                : roadRoute ? `${roadRoute.distanceKm.toFixed(1)} km · ${Math.round(roadRoute.durationMinutes)} min (OSRM)`
+                : selectedTripHasCoords ? 'OSRM road route unavailable' : 'Select a trip with coordinates'}</span>
             </div>
           </div>
           {errors.vehicles && <div className="map-inline-warning">Vehicle positions unavailable: {errors.vehicles}</div>}
@@ -248,55 +257,13 @@ export default function Dashboard() {
               <span>{selectedTrip.originName} → {selectedTrip.destinationName}</span>
               <span>Status · {(selectedTrip.status || 'UNKNOWN').replaceAll('_', ' ')}</span>
               <small>{roadRoute
-                ? `Google Maps road route · ${roadRoute.distanceKm.toFixed(1)} km · ${Math.round(roadRoute.durationMinutes)} min.`
-                : 'Google Maps route unavailable; no straight-line estimate is substituted.'}</small>
+                ? `OSRM road route on Google Maps · ${roadRoute.distanceKm.toFixed(1)} km · ${Math.round(roadRoute.durationMinutes)} min.`
+                : 'OSRM road route unavailable; no straight-line estimate is substituted.'}</small>
             </div>
           )}
         </section>}
       </div>
 
-      <div className="operations-panels">
-        <section className="reference-panel lower-panel">
-          <div className="section-header"><h2>Trip assignment</h2><a href="/trip-assignment">Open trip planner</a></div>
-          {errors.trips ? <ErrorState message={`Trip assignment data unavailable: ${errors.trips}`} onRetry={loadData} />
-            : <div className="panel-stat"><span>Trips awaiting assignment</span><strong>{awaitingAssignment ?? 'Insufficient data'}</strong></div>}
-        </section>
-        <section className="reference-panel lower-panel">
-          <div className="section-header"><h2>Vehicle recommendation</h2><a href="/vehicle-recommendation">Review vehicles</a></div>
-          {errors.vehicles ? <ErrorState message={`Vehicle data unavailable: ${errors.vehicles}`} onRetry={loadData} />
-            : <div className="panel-stat"><span>Vehicles currently available</span><strong>{availableVehicles ?? 'Insufficient data'}</strong></div>}
-        </section>
-        <section className="reference-panel lower-panel">
-          <div className="section-header"><h2>Route recommendation</h2><a href="/route-recommendation">View route details</a></div>
-          {selectedTrip && roadRoute
-            ? <div className="panel-stat"><span>Google road distance · duration</span><strong>{roadRoute.distanceKm.toFixed(1)} km · {Math.round(roadRoute.durationMinutes)} min</strong></div>
-            : <EmptyState title={routeState === 'loading' ? 'Calculating road route' : 'Route estimate unavailable'}
-              detail={routeState === 'loading' ? 'Requesting a driving route from Google Maps.' : routeError || 'Select a trip with valid coordinates.'} />}
-        </section>
-        <section className="reference-panel lower-panel">
-          <div className="section-header"><h2>Vehicle availability & maintenance</h2><a href="/vehicle-maintenance">View fleet</a></div>
-          {errors.vehicles ? <ErrorState message={`Vehicle data unavailable: ${errors.vehicles}`} onRetry={loadData} />
-            : <div className="panel-stat"><span>Unavailable or restricted</span><strong>{unavailableVehicles ?? 'Insufficient data'}</strong></div>}
-        </section>
-        <section className="reference-panel lower-panel">
-          <div className="section-header"><h2>Driver details</h2><a href="/driver-details">View drivers</a></div>
-          {errors.drivers ? <ErrorState message={`Driver data unavailable: ${errors.drivers}`} onRetry={loadData} />
-            : <div className="panel-stat"><span>Driver records</span><strong>{Array.isArray(drivers) ? drivers.length : 'Insufficient data'}</strong></div>}
-        </section>
-      </div>
-      <section className="reference-panel alert-feed" id="alerts">
-        <div className="section-header"><div><h2>Recent alerts</h2><p className="panel-description">Operational alerts from the fleet service.</p></div></div>
-        {errors.alerts ? <ErrorState message={`Alerts unavailable: ${errors.alerts}`} onRetry={loadData} />
-          : alerts?.length ? alerts.map(alert => (
-            <div className="alert-feed-row" key={alert.id}>
-              <span className={`severity-dot ${String(alert.severity).toLowerCase()}`} />
-              <div><strong>{alert.alertType} · {alert.severity}</strong><span>{alert.message}</span></div>
-              <time>{formatDate(alert.createdAt)}</time>
-              {alert.status !== 'ACKNOWLEDGED' && <button className="text-button" onClick={() => acknowledgeAlert(alert.id)}>Acknowledge</button>}
-              {alert.status === 'ACKNOWLEDGED' && <span className="status-badge success">Acknowledged</span>}
-            </div>
-          )) : <EmptyState title="No alerts" detail="No operational alerts have been recorded." />}
-      </section>
       <div className="data-footnote">
         <Truck size={14} /> Fleet utilization {fleetUtilization ?? 'Insufficient data'} · On-time rate {metrics?.onTimeRate ?? 'Insufficient data'}
       </div>

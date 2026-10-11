@@ -13,6 +13,11 @@ export default defineConfig({
         configure(proxy) {
           proxy.on('proxyReq', proxyRequest => proxyRequest.removeHeader('origin'))
         }
+      },
+      '/ai-api': {
+        target: 'http://localhost:8082',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/ai-api/, '/api')
       }
     }
   }

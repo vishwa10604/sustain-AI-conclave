@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { signIn } from '../lib/api'
+import Brand from '../components/Brand'
 
 export default function ManagerLogin() {
   const navigate = useNavigate()
@@ -19,7 +20,7 @@ export default function ManagerLogin() {
       window.localStorage.setItem('fleetmind.token', session.token)
       window.localStorage.setItem('fleetmind.role', session.role)
       window.localStorage.setItem('fleetmind.email', session.email)
-      navigate('/dashboard', { replace: true })
+      navigate('/', { replace: true })
     } catch (requestError) {
       setError(requestError.message || 'Unable to sign in. Please try again.')
     } finally {
@@ -31,7 +32,8 @@ export default function ManagerLogin() {
     <div className="login-page dark-login">
       <form className="login-card dark-card" onSubmit={handleSubmit}>
         <div className="login-header">
-          <span className="eyebrow">FleetMind AI · Manager access</span>
+          <Brand />
+          <span className="eyebrow">Manager access</span>
           <h1>Welcome back</h1>
           <p>Sign in to manage fleet operations.</p>
         </div>
@@ -50,6 +52,7 @@ export default function ManagerLogin() {
           {loading ? 'Signing in…' : 'Sign in as Manager'}
         </button>
         <p className="login-switch">Driver? <Link to="/driver-login">Sign in here</Link></p>
+        <p className="login-switch">New to Verdant Fleet? <Link to="/sign-up?role=MANAGER">Sign up</Link></p>
         <p className="login-switch"><Link to="/role-selection">Back to role selection</Link></p>
       </form>
     </div>

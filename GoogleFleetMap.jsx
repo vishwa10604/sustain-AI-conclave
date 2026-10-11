@@ -123,6 +123,17 @@ export default function GoogleFleetMap({
   }, [map, showRoute])
 
   useEffect(() => {
+    if (!map || !mapElement.current || typeof ResizeObserver === 'undefined') return undefined
+    const resizeObserver = new ResizeObserver(() => {
+      const center = map.getCenter()
+      window.google.maps.event.trigger(map, 'resize')
+      if (center) map.setCenter(center)
+    })
+    resizeObserver.observe(mapElement.current)
+    return () => resizeObserver.disconnect()
+  }, [map])
+
+  useEffect(() => {
     if (!map) return undefined
     let cancelled = false
     const controller = new AbortController()
@@ -144,11 +155,13 @@ export default function GoogleFleetMap({
         )
         url.searchParams.set('overview', 'full')
         url.searchParams.set('geometries', 'geojson')
+        url.searchParams.set('alternatives', 'true')
         const response = await fetch(url, { signal: controller.signal })
         if (!response.ok) throw new Error(`OSRM returned HTTP ${response.status}.`)
         const result = await response.json()
         if (cancelled) return
-        const selectedRoute = result.code === 'Ok' ? result.routes?.[0] : null
+        const selectedRoutes = result.code === 'Ok' ? result.routes || [] : []
+        const selectedRoute = selectedRoutes[0]
         const coordinates = selectedRoute?.geometry?.coordinates
         if (!selectedRoute || !Array.isArray(coordinates) || coordinates.length < 2) {
           onRouteChange?.(null)
@@ -159,18 +172,30 @@ export default function GoogleFleetMap({
         if (path.some(point => !Number.isFinite(point.lat) || !Number.isFinite(point.lng))) {
           throw new Error('OSRM returned invalid route coordinates.')
         }
-        const polyline = new window.google.maps.Polyline({
-          path,
-          strokeColor: '#24c6a1',
-          strokeOpacity: 0.92,
-          strokeWeight: 6,
-        })
+        const routeOptions = selectedRoutes.map((option, index) => {
+          const routeCoordinates = option.geometry?.coordinates
+          if (!Array.isArray(routeCoordinates) || routeCoordinates.length < 2) return null
+          const routePoints = routeCoordinates.map(([longitude, latitude]) => ({ lat: latitude, lng: longitude }))
+          if (routePoints.some(point => !Number.isFinite(point.lat) || !Number.isFinite(point.lng))) return null
+          const polyline = new window.google.maps.Polyline({
+            path: routePoints,
+            strokeColor: index === 0 ? '#24c6a1' : '#f2b544',
+            strokeOpacity: index === 0 ? 0.95 : 0.72,
+            strokeWeight: index === 0 ? 6 : 4,
+          })
+          polyline.setMap(showRouteRef.current ? map : null)
+          routePolylinesRef.current.push(polyline)
+          return {
+            index: index + 1,
+            distanceKm: option.distance / 1000,
+            durationMinutes: option.duration / 60,
+          }
+        }).filter(Boolean)
         if (cancelled) {
-          polyline.setMap(null)
+          routePolylinesRef.current.forEach(polyline => polyline.setMap(null))
+          routePolylinesRef.current = []
           return
         }
-        routePolylinesRef.current = [polyline]
-        polyline.setMap(showRouteRef.current ? map : null)
         setRoutePath(path)
         if (path.length) {
           const bounds = new window.google.maps.LatLngBounds()
@@ -178,6 +203,7 @@ export default function GoogleFleetMap({
           map.fitBounds(bounds, { top: 70, right: 70, bottom: 60, left: 70 })
         }
         onRouteChange?.({
+          alternatives: routeOptions,
           distanceKm: selectedRoute.distance / 1000,
           durationMinutes: selectedRoute.duration / 60,
         })

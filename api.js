@@ -1,4 +1,5 @@
 const API_ROOT = import.meta.env.VITE_API_BASE_URL || '/api'
+const AI_API_ROOT = import.meta.env.VITE_AI_API_BASE_URL || '/ai-api'
 
 export class ApiError extends Error {
   constructor(message, status) {
@@ -33,4 +34,31 @@ export async function signIn(email, password) {
     body: JSON.stringify({ email, password }),
   })
   return response
+}
+
+export async function signUp(details) {
+  return apiRequest('/auth/register', {
+    method: 'POST',
+    body: JSON.stringify(details),
+  })
+}
+
+export async function requestRouteAssistant(details) {
+  const response = await fetch(`${AI_API_ROOT}/route-assistant`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(details),
+  })
+  if (!response.ok) {
+    const responseBody = await response.text()
+    let message = responseBody
+    try {
+      const parsed = JSON.parse(responseBody)
+      message = parsed.detail || parsed.message || responseBody
+    } catch {
+      message = responseBody
+    }
+    throw new ApiError(message || `Route assistant request failed (${response.status})`, response.status)
+  }
+  return response.json()
 }
